@@ -17,6 +17,11 @@
     <allure.version>2.27.0</allure.version>  </properties>
 
   <dependencies>
+      <dependency>
+          <groupId>io.github.bonigarcia</groupId>
+          <artifactId>webdrivermanager</artifactId>
+          <version>5.5.3</version>
+      </dependency>
 <dependency>
       <groupId>io.qameta.allure</groupId>
       <artifactId>allure-testng</artifactId>
