@@ -18,7 +18,7 @@ public class MenadzerSterownika {
         WebDriver przegladarka;
 
         if (typPrzegladarki == null) {
-            typPrzegladarki = TypyPrzegladarek.valueOf(WlasciwosciKonfiguracyjne.pozyskajWlasciwosci().getProperty("browser"));
+            typPrzegladarki = TypyPrzegladarek.valueOf(WlasciwosciKonfiguracyjne.pozyskajWlasciwosci().getProperty("przegladarka"));
         }
         przegladarka = new GeneratorPrzegladarek(typPrzegladarki).przegladarka();
 
