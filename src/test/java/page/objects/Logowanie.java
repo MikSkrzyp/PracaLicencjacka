@@ -22,6 +22,12 @@ public class Logowanie extends KonfiguratorPageObjects{
     return this;
     }
 
+    public String getLogoText() {
+        CzekajNaElement.czekajAzElementWidoczny(logo);
+        return logo.getText();
+    }
+
+
 
 
 }

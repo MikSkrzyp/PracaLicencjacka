@@ -1,6 +1,5 @@
 package sterownik.manager;
 
-
 import konfiguracje.WlasciwosciKonfiguracyjne;
 import org.openqa.selenium.WebDriver;
 import sterownik.przegladarka.GeneratorPrzegladarek;
@@ -9,26 +8,20 @@ import sterownik.przegladarka.TypyPrzegladarek;
 public class MenadzerSterownika {
 
     private static ThreadLocal<WebDriver> sterownikThreadLocal = new ThreadLocal<>();
-    private static ThreadLocal<TypyPrzegladarek> przegladarkaTypeThreadLocal = new ThreadLocal<>();
 
     private MenadzerSterownika() {
     }
 
     public static void ustawSterownik(TypyPrzegladarek typPrzegladarki) {
-        WebDriver przegladarka;
-
-        if (typPrzegladarki == null) {
-            typPrzegladarki = TypyPrzegladarek.valueOf(WlasciwosciKonfiguracyjne.pozyskajWlasciwosci().getProperty("przegladarka"));
+        if (sterownikThreadLocal.get() == null) {
+            WebDriver przegladarka = new GeneratorPrzegladarek(typPrzegladarki).przegladarka();
+            sterownikThreadLocal.set(przegladarka);
         }
-        przegladarka = new GeneratorPrzegladarek(typPrzegladarki).przegladarka();
-
-        przegladarkaTypeThreadLocal.set(typPrzegladarki);
-        sterownikThreadLocal.set(przegladarka);
     }
 
     public static WebDriver sterownik() {
         if (sterownikThreadLocal.get() == null) {
-            throw new IllegalStateException("blad");
+            throw new IllegalStateException("WebDriver nie został zainicjalizowany.");
         }
         return sterownikThreadLocal.get();
     }
@@ -36,8 +29,7 @@ public class MenadzerSterownika {
     public static void porzucSterownik() {
         if (sterownikThreadLocal.get() != null) {
             sterownikThreadLocal.get().quit();
+            sterownikThreadLocal.remove();
         }
-        sterownikThreadLocal.remove();
-        sterownikThreadLocal.remove();
     }
 }
