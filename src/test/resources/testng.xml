@@ -1,0 +1,10 @@
+<suite name="Cucumber Test Suite">
+    <listeners>
+        <listener class-name="utils.AnnotationTransformer" />
+    </listeners>
+    <test name="Cucumber Tests">
+        <classes>
+            <class name="testrunners.CucumberTestRunner" />
+        </classes>
+    </test>
+</suite>
