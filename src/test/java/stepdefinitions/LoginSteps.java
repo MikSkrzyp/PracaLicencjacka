@@ -24,4 +24,9 @@ public class LoginSteps {
         String actualText = logowanie.getLogoText();
         Assert.assertEquals(actualText, expectedText, "Logo text does not match!");
     }
+
+    @Then("I should see the Login button")
+    public void i_should_see_the_login_button(){
+        logowanie.getLoginButton();
+    }
 }

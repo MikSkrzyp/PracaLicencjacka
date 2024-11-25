@@ -7,3 +7,7 @@ Feature: Login Page Verification
     Given I open the login page
     When I check the logo text
     Then I should see the text "Swag Labs"
+
+  Scenario: Verify
+    Given I open the login page
+    Then I should see the Login button
