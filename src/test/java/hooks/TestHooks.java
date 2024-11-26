@@ -22,14 +22,25 @@ public class TestHooks {
 
     @Before(order = 1)
     public void setupDriver(Scenario scenario) {
-        String browser = WlasciwosciKonfiguracyjne.pozyskajWlasciwosci().getProperty("przegladarka", "CHROME").toUpperCase();
+        String browser = "CHROME"; // Default browser is Chrome
+
+        // Check for browser tag in the scenario
+        if (scenario.getSourceTagNames().contains("@firefox")) {
+            browser = "FIREFOX";
+        } else if (scenario.getSourceTagNames().contains("@chrome")) {
+            browser = "CHROME";
+        }
+        else if (scenario.getSourceTagNames().contains("@edge")) {
+            browser = "EDGE";
+        }
+
         String baseUrl = WlasciwosciKonfiguracyjne.pozyskajWlasciwosci().getProperty("url");
         MenadzerSterownika.ustawSterownik(TypyPrzegladarek.valueOf(browser));
 
         DodatkiSterownika.powiekszOkno();
         DodatkiSterownika.nawigujDoStrony(baseUrl);
 
-        System.out.println("Running Scenario: " + scenario.getName());
+        System.out.println("Running Scenario: " + scenario.getName() + " on browser: " + browser);
     }
 
     @After

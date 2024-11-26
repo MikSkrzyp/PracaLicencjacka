@@ -1,5 +1,5 @@
-@chrome
-Feature: Login Page Verification
+@edge
+Feature: Login Page Verification2
   As a user
   I want to verify the login page
   So that I can ensure the correct branding and layout
@@ -10,12 +10,7 @@ Feature: Login Page Verification
     When I check the logo text
     Then I should see the text "Swag Labs"
 
-
+#
 #  Scenario: Verify
-#    Given I open the login page
-#    Then I should see the Login button
-#
-#
-#  Scenario: Verify2
 #    Given I open the login page
 #    Then I should see the Login button
