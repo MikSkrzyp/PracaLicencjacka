@@ -18,7 +18,7 @@ public class LogowanieSteps {
         logowanie = new Logowanie();
     }
 
-    @When("I input correct username, passowrd and click button")
+    @When("I input correct username, password and click button")
     public void inputCorrectUsernamePasswordClickButton(){
         logowanie.inputCorrectUsernamePassword().clickLoginButton();
 
