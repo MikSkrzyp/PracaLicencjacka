@@ -14,4 +14,7 @@ public class DodatkiSterownika {
         MenadzerSterownika.sterownik().navigate().to(adres);
     }
 
+    public static String obecnyAdres(){
+        return MenadzerSterownika.sterownik().getCurrentUrl();
+    }
 }

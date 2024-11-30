@@ -11,7 +11,7 @@ import utils.RetryAnalyzer;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = {"stepdefinitions", "hooks"},
-        plugin = {"pretty", "html:target/cucumber-reports.html"},
+        plugin = {"pretty",   "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"},
         monochrome = true
 )
 

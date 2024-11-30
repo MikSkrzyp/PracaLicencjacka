@@ -30,6 +30,13 @@
             <version>7.14.0</version>
         </dependency>
 
+        <!-- Allure Cucumber JVM Adapter -->
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-cucumber7-jvm</artifactId>
+            <version>${allure.version}</version>
+        </dependency>
+
         <!-- Selenium & WebDriverManager -->
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -112,7 +119,7 @@
                 <version>3.2.5</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src\test\resources\testng.xml</suiteXmlFile>
+                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>true</testFailureIgnore>
                     <argLine>
