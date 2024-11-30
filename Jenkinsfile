@@ -1,17 +1,17 @@
 pipeline {
     agent any
     stages {
-        stage('Build test code') {
+        stage('Preparing Tests') {
             steps {
                 bat 'mvn clean install -DskipTests'
             }
         }
-        stage('Execute test') {
+        stage('Executing Tests') {
             steps {
                 bat 'mvn test'
             }
         }
-        stage('Generate allure report') {
+        stage('Generating Testing Report') {
             steps {
                 script {
                     allure([
