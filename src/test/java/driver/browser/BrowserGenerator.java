@@ -1,25 +1,22 @@
-package sterownik.przegladarka;
+package driver.browser;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import driver.browser.BrowserTypes;
+public class BrowserGenerator {
 
-import org.openqa.selenium.ie.InternetExplorerDriver;
+    private BrowserTypes browserType;
 
-
-
-public class GeneratorPrzegladarek {
-
-    private TypyPrzegladarek typPrzegladarki;
-    public GeneratorPrzegladarek(TypyPrzegladarek typPrzegladarki) {
-        this.typPrzegladarki = typPrzegladarki;
+    public BrowserGenerator(BrowserTypes browserType) {
+        this.browserType = browserType;
     }
 
-    public WebDriver przegladarka() {
+    public WebDriver generateBrowser() {
 
-        switch (typPrzegladarki) {
+        switch (browserType) {
             case CHROME:
                 WebDriverManager.chromedriver().setup();
                 return new ChromeDriver();
@@ -27,11 +24,10 @@ public class GeneratorPrzegladarek {
                 WebDriverManager.firefoxdriver().setup();
                 return new FirefoxDriver();
             case EDGE:
-                WebDriverManager.iedriver().setup();
+                WebDriverManager.edgedriver().setup();
                 return new EdgeDriver();
             default:
-                throw new IllegalStateException("Nieznana Przegladarka");
+                throw new IllegalStateException("Unknown browser");
         }
     }
-
 }

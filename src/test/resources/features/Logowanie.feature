@@ -1,4 +1,3 @@
-@firefox
 Feature: Strona Logowania
 
 

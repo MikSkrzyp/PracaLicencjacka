@@ -4,14 +4,14 @@ import io.cucumber.java.gl.Logo;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.bidi.log.Log;
 import org.openqa.selenium.support.FindBy;
-import waits.CzekajNaElement;
+import waits.WaitForElement;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
 import static data.TestData.username;
 import static data.TestData.password;
 
-public class Logowanie extends KonfiguratorPageObjects{
+public class Logowanie extends PageObjectInitializer{
 
 
     @FindBy(xpath = "//*[@id=\"root\"]/div/div[1]")
@@ -28,14 +28,14 @@ public class Logowanie extends KonfiguratorPageObjects{
 
 
     public Logowanie inputCorrectUsernamePassword(){
-        CzekajNaElement.czekajAzElementWidoczny(usernameInput);
+        WaitForElement.waitForElementToBeVisible(usernameInput);
         usernameInput.sendKeys(username);
         passwordInput.sendKeys(password);
         return this;
     }
 
     public Home clickLoginButton(){
-        CzekajNaElement.czekajAzElementWidoczny(loginButton);
+        WaitForElement.waitForElementToBeVisible(loginButton);
         loginButton.click();
         return new Home();
     }

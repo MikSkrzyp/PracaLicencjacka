@@ -5,9 +5,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import page.objects.Logowanie;
 
+import static driver.manager.DriverExtensions.getCurrentUrl;
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
-import static sterownik.manager.DodatkiSterownika.obecnyAdres;
 
 public class LogowanieSteps {
     private Logowanie logowanie;
@@ -25,6 +25,6 @@ public class LogowanieSteps {
     }
     @Then("I am moved to Home Page")
     public void assureThatYouAreOnMainPage(){
-        assertEquals(obecnyAdres(),"https://www.saucedemo.com/inventory.html");
+        assertEquals(getCurrentUrl(),"https://www.saucedemo.com/inventory.html");
     }
 }
