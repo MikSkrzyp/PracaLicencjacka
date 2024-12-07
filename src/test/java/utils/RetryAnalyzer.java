@@ -8,7 +8,7 @@ public class RetryAnalyzer implements IRetryAnalyzer {
     //Class allows to retry test if it failed
 
     private int count = 0;
-    private static final int RETRIES= 0;
+    private static final int RETRIES= 2;
 
     @Override
     public boolean retry(ITestResult iTestResult) {
