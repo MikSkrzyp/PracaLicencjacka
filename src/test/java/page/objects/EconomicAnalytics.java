@@ -3,6 +3,7 @@ package page.objects;
 import driver.manager.DriverExtensions;
 import driver.manager.DriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -15,7 +16,7 @@ public class EconomicAnalytics extends PageObjectInitializer{
     @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/p[2]")
     private WebElement economicAnalyticsAlert;
 
-    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/form[2]/div[2]/label/input")
+    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/form[2]/div[1]/label")
     private WebElement bachelorCheckbox;
 
     @FindBy(css = "#skrypt-wzr > form > div > a")
@@ -32,6 +33,8 @@ public class EconomicAnalytics extends PageObjectInitializer{
         return this;
     }
     public EconomicAnalytics clickBachelorCheckbox() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
+        js.executeScript("window.scrollBy(0,1000)", "");
         bachelorCheckbox.click();
         return this;
     }
