@@ -30,7 +30,7 @@ public class EconomicAnalytics extends PageObjectInitializer{
         return this;
     }
     public EconomicAnalytics clickBachelorCheckbox(){
-        WaitForElement.waitForElementToBeClickable(bachelorCheckbox);
+        WaitForElement.waitForElementToBeVisible(bachelorCheckbox);
         bachelorCheckbox.click();
         return this;
     }
