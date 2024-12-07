@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 import driver.manager.DriverExtensions;
+import io.cucumber.java.an.E;
 import io.cucumber.java.pl.I;
 import io.cucumber.java.pl.Kiedy;
 import io.cucumber.java.pl.Wtedy;
@@ -21,6 +22,19 @@ public class StudyProgramSteps {
         DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
         studyProgram.clickCookiesAlert();
     }
+    @Zakładającże("Jestem na stronie z Programem Studiów Analityki Gospodarczej")
+    public void stronaProgramStudiowAnalitykaGospodarcza() throws InterruptedException {
+        studyProgram = new StudyProgram();
+        DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
+       studyProgram.clickCookiesAlert();
+        economicAnalytics = studyProgram.clickOnAnalitykaGospodarczaLink();
+
+    }
+
+    @Kiedy("Zaznaczę opcję Studia Stacjonarne")
+    public void analitykaGospodarczaStudiaStacjonarne(){
+     economicAnalytics.clickBachelorCheckbox();
+    }
 
 
     @Kiedy("Wybiorę kierunek Analityka Gospodarcza")
@@ -34,6 +48,11 @@ public class StudyProgramSteps {
     @Wtedy("Powinienem zobaczyć tekst \"STUDIA I STOPNIA\"")
     public void assertTitle(){
         studyProgram.assertTitle();
+    }
+
+    @Wtedy("Nie powinien się pojawić przycisk z ikonką PDF")
+    public void economicAnalyticsPDFICON(){
+        economicAnalytics.assureThatPDFIconIsNotVisible();
     }
 
     @Wtedy("Powinienem zostać przeniesiony na stronę Analityki Gospodarczej")
