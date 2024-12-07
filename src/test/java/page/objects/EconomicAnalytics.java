@@ -33,6 +33,7 @@ public class EconomicAnalytics extends PageObjectInitializer{
         return this;
     }
     public EconomicAnalytics clickBachelorCheckbox() throws InterruptedException {
+        Thread.sleep(5000);
         JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
         js.executeScript("window.scrollBy(0,1000)", "");
         bachelorCheckbox.click();
