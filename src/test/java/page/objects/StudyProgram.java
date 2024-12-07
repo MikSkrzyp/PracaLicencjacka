@@ -36,10 +36,10 @@ public class StudyProgram extends PageObjectInitializer {
 
 
     public EconomicAnalytics clickOnAnalitykaGospodarczaLink(){
-        WebElement iframe = DriverManager.getDriver().findElement(By.id("dataFromOldWZR"));
-        DriverManager.getDriver().switchTo().frame(iframe);
+        DriverManager.getDriver().switchTo().frame(0);
         WaitForElement.waitForElementToBeClickable(economicAnalyticsLink);
         economicAnalyticsLink.click();
+        DriverManager.getDriver().switchTo().defaultContent();
         return new EconomicAnalytics();
     }
 
