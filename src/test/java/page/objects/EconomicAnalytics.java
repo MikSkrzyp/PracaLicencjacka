@@ -1,6 +1,8 @@
 package page.objects;
 
 import driver.manager.DriverExtensions;
+import driver.manager.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -16,7 +18,7 @@ public class EconomicAnalytics extends PageObjectInitializer{
     @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/form[2]/div[2]/label/input")
     private WebElement bachelorCheckbox;
 
-    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/form/div/a")
+    @FindBy(css = "#skrypt-wzr > form > div > a")
     private WebElement pdfIcon;
 
     public EconomicAnalytics checkURL(){
@@ -35,7 +37,8 @@ public class EconomicAnalytics extends PageObjectInitializer{
         return this;
     }
 
-    public EconomicAnalytics assureThatPDFIconIsNotVisible(){
+    public EconomicAnalytics assureThatPDFIconIsNotVisible() throws InterruptedException {
+        Thread.sleep(3000);
         assertTrue(pdfIcon.isDisplayed());
         return this;
     }

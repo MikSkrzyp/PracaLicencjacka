@@ -22,16 +22,8 @@ public class StudyProgramSteps {
         DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
         studyProgram.clickCookiesAlert();
     }
-    @Zakładającże("Jestem na stronie z Programem Studiów Analityki Gospodarczej")
-    public void stronaProgramStudiowAnalitykaGospodarcza() throws InterruptedException {
-        studyProgram = new StudyProgram();
-        DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
-       studyProgram.clickCookiesAlert();
-        economicAnalytics = studyProgram.clickOnAnalitykaGospodarczaLink();
 
-    }
-
-    @Kiedy("Zaznaczę opcję Studia Stacjonarne")
+    @I("Zaznaczę opcję Studia Stacjonarne")
     public void analitykaGospodarczaStudiaStacjonarne(){
      economicAnalytics.clickBachelorCheckbox();
     }
@@ -51,7 +43,7 @@ public class StudyProgramSteps {
     }
 
     @Wtedy("Nie powinien się pojawić przycisk z ikonką PDF")
-    public void economicAnalyticsPDFICON(){
+    public void economicAnalyticsPDFICON() throws InterruptedException {
         economicAnalytics.assureThatPDFIconIsNotVisible();
     }
 
