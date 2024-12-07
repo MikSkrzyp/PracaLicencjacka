@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import driver.browser.BrowserTypes;
+import org.openqa.selenium.safari.SafariDriver;
+
 public class BrowserGenerator {
 
     private BrowserTypes browserType;
@@ -26,6 +28,9 @@ public class BrowserGenerator {
             case EDGE:
                 WebDriverManager.edgedriver().setup();
                 return new EdgeDriver();
+            case SAFARI:
+                WebDriverManager.safaridriver().setup();
+                return new SafariDriver();
             default:
                 throw new IllegalStateException("Unknown browser");
         }

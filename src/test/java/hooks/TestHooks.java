@@ -35,6 +35,9 @@ public class TestHooks {
         } else if (scenario.getSourceTagNames().contains("@edge")) {
             browser = "EDGE";
         }
+        else if (scenario.getSourceTagNames().contains("@safari")) {
+            browser = "SAFARI";
+        }
 
         String baseUrl = ConfigurationProperties.getProperties().getProperty("url");
         DriverManager.setDriver(BrowserTypes.valueOf(browser));
