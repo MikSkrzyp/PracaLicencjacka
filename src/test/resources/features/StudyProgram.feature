@@ -20,7 +20,7 @@ Funkcja: Program Studiów
     I Zaznaczę opcję Studia Stacjonarne
     Wtedy Nie powinien się pojawić przycisk z ikonką PDF
 
-    @edge
+    @chrome
     Scenariusz: test4
       Zakładając, że Jestem na stronie z Programem Studiów
       Kiedy Wybiorę kierunek AiB
