@@ -19,7 +19,7 @@ public class EconomicAnalytics extends PageObjectInitializer{
     @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/form[2]/div[1]/label")
     private WebElement bachelorCheckbox;
 
-    @FindBy(css = "#skrypt-wzr > form > div > a")
+    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/form/div/a")
     private WebElement pdfIcon;
 
     public EconomicAnalytics checkURL(){
@@ -41,7 +41,7 @@ public class EconomicAnalytics extends PageObjectInitializer{
     }
 
     public EconomicAnalytics assureThatPDFIconIsNotVisible() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(5000);
         assertTrue(pdfIcon.isDisplayed());
         return this;
     }
