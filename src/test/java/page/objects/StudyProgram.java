@@ -19,7 +19,8 @@ public class StudyProgram extends PageObjectInitializer {
     @FindBy(xpath = "//*[@id=\"popup-buttons\"]/button[1]")
     private WebElement cookiesAlert;
 
-
+    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/div[2]/div[2]/a")
+    private WebElement aibLink;
 
     public void clickCookiesAlert() throws InterruptedException {
         Thread.sleep(3000);
@@ -41,6 +42,14 @@ public class StudyProgram extends PageObjectInitializer {
         WaitForElement.waitForElementToBeClickable(economicAnalyticsLink);
         economicAnalyticsLink.click();
         return new EconomicAnalytics();
+    }
+
+    public AiB clickOnAiBLink(){
+        WebElement iframe = DriverManager.getDriver().findElement(By.id("dataFromOldWZR"));
+        DriverManager.getDriver().switchTo().frame(iframe);
+        WaitForElement.waitForElementToBeClickable(aibLink);
+        aibLink.click();
+        return new AiB();
     }
 
 }
