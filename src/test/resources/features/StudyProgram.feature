@@ -6,7 +6,7 @@ Funkcja: Program Studiów
     Zakładając, że Jestem na stronie z Programem Studiów
     Wtedy Powinienem zobaczyć tekst "STUDIA I STOPNIA"
 
-
+    @edge
   Scenariusz: test2
     Zakładając, że Jestem na stronie z Programem Studiów
     Kiedy Wybiorę kierunek Analityka Gospodarcza
