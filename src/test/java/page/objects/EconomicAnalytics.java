@@ -13,7 +13,7 @@ public class EconomicAnalytics extends PageObjectInitializer{
     @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/p[2]")
     private WebElement economicAnalyticsAlert;
 
-    @FindBy(xpath = "/html/body/div/div/form[2]/div[1]/label/input")
+    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/form[2]/div[2]/label/input")
     private WebElement bachelorCheckbox;
 
     @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/form/div/a")
