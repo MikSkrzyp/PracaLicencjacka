@@ -1,6 +1,7 @@
 package driver.manager;
 
 import io.qameta.allure.Step;
+import org.openqa.selenium.By;
 
 public class DriverExtensions {
 
@@ -16,5 +17,9 @@ public class DriverExtensions {
 
     public static String getCurrentUrl() {
         return DriverManager.getDriver().getCurrentUrl();
+    }
+
+    public static void turnEnglish() {
+        DriverManager.getDriver().findElement(By.id("english")).click();
     }
 }

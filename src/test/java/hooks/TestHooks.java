@@ -9,6 +9,8 @@ import configurations.ConfigurationProperties;
 import driver.manager.DriverExtensions;
 import driver.manager.DriverManager;
 import driver.browser.BrowserTypes;
+import org.openqa.selenium.By;
+import waits.WaitForElement;
 
 import java.util.Properties;
 
@@ -22,7 +24,7 @@ public class TestHooks {
     }
 
     @Before(order = 1)
-    public void setupDriver(Scenario scenario) {
+    public void setupDriver(Scenario scenario)  {
         String browser = ConfigurationProperties.getProperties().getProperty("browser"); // Default browser is Chrome
 
         // Check for browser tag in the scenario
@@ -39,7 +41,6 @@ public class TestHooks {
 
         DriverExtensions.maximizeWindow();
         DriverExtensions.navigateToPage(baseUrl);
-
         System.out.println("Running Scenario: " + scenario.getName() + " on browser: " + browser);
     }
 
