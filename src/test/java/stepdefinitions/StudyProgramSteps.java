@@ -25,7 +25,7 @@ public class StudyProgramSteps {
 
     @Kiedy("Wybiorę kierunek Analityka Gospodarcza")
     public void analitykaGospodarcza() throws InterruptedException {
-//        Thread.sleep(100000);
+         Thread.sleep(3000);
      economicAnalytics = studyProgram.clickOnAnalitykaGospodarczaLink();
     }
 
