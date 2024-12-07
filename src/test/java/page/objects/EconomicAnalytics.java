@@ -11,7 +11,7 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class EconomicAnalytics extends PageObjectInitializer{
 
-    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/p[2]")
+    @FindBy(css = ".komunikat")
     private WebElement economicAnalyticsAlert;
 
 
@@ -20,11 +20,10 @@ public class EconomicAnalytics extends PageObjectInitializer{
         return this;
     }
 
-    public EconomicAnalytics checkAlert(){
-        WebElement iframe = DriverManager.getDriver().findElement(By.id("dataFromOldWZR"));
-        DriverManager.getDriver().switchTo().frame(iframe);
+    public EconomicAnalytics checkAlert() throws InterruptedException {
+       DriverManager.getDriver().switchTo().frame(0);
+       Thread.sleep(3000);
         assertEquals("Program studiów dla specjalności Analityka gospodarcza na rok akademicki 2024-2025 nie został opublikowany.",economicAnalyticsAlert.getText());
-        DriverManager.getDriver().switchTo().defaultContent();
         return this;
     }
 

@@ -42,7 +42,7 @@ public class StudyProgramSteps {
     }
 
     @I("Zobaczyć komunikat: Program studiów dla specjalności Analityka gospodarcza na rok akademicki 2024-2025 nie został opublikowany.")
-    public void economicAnalyticsAlert(){
+    public void economicAnalyticsAlert() throws InterruptedException {
         economicAnalytics.checkAlert();
     }
 }
