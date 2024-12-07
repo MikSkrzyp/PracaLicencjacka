@@ -1,7 +1,7 @@
 # language: pl
 Funkcja: Program Studiów
 
-
+@firefox
   Scenariusz: test1
     Zakładając, że Jestem na stronie z Programem Studiów
     Wtedy Powinienem zobaczyć tekst "STUDIA I STOPNIA"
