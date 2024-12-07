@@ -13,7 +13,7 @@ public class StudyProgram extends PageObjectInitializer {
     @FindBy(xpath = "//*[@id=\"taxonomy-term-714\"]/div/div/div/div/div/div/span/article/header/h2/span")
     private WebElement title;
 
-    @FindBy(xpath = "//div[contains(text(), 'Analityka gospodarcza')]")
+    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/div[2]/div[1]/a")
     private WebElement economicAnalyticsLink;
 
     @FindBy(xpath = "//*[@id=\"popup-buttons\"]/button[1]")
@@ -36,10 +36,10 @@ public class StudyProgram extends PageObjectInitializer {
 
 
     public EconomicAnalytics clickOnAnalitykaGospodarczaLink(){
-        DriverManager.getDriver().switchTo().frame(0);
+        WebElement iframe = DriverManager.getDriver().findElement(By.id("dataFromOldWZR"));
+        DriverManager.getDriver().switchTo().frame(iframe);
         WaitForElement.waitForElementToBeClickable(economicAnalyticsLink);
         economicAnalyticsLink.click();
-        DriverManager.getDriver().switchTo().defaultContent();
         return new EconomicAnalytics();
     }
 

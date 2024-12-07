@@ -25,8 +25,8 @@ public class StudyProgramSteps {
 
     @Kiedy("Wybiorę kierunek Analityka Gospodarcza")
     public void analitykaGospodarcza() throws InterruptedException {
-         Thread.sleep(3000);
-     economicAnalytics = studyProgram.clickOnAnalitykaGospodarczaLink();
+//        Thread.sleep(100000);
+        economicAnalytics = studyProgram.clickOnAnalitykaGospodarczaLink();
     }
 
 
@@ -42,7 +42,7 @@ public class StudyProgramSteps {
     }
 
     @I("Zobaczyć komunikat: Program studiów dla specjalności Analityka gospodarcza na rok akademicki 2024-2025 nie został opublikowany.")
-    public void economicAnalyticsAlert() throws InterruptedException {
+    public void economicAnalyticsAlert(){
         economicAnalytics.checkAlert();
     }
 }
