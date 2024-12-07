@@ -31,8 +31,8 @@ public class EconomicAnalytics extends PageObjectInitializer{
         assertEquals("Program studiów dla specjalności Analityka gospodarcza na rok akademicki 2024-2025 nie został opublikowany.",economicAnalyticsAlert.getText());
         return this;
     }
-    public EconomicAnalytics clickBachelorCheckbox(){
-        WaitForElement.waitForElementToBeVisible(bachelorCheckbox);
+    public EconomicAnalytics clickBachelorCheckbox() throws InterruptedException {
+        Thread.sleep(3000);
         bachelorCheckbox.click();
         return this;
     }

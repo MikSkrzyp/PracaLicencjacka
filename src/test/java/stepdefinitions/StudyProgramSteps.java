@@ -24,7 +24,7 @@ public class StudyProgramSteps {
     }
 
     @I("Zaznaczę opcję Studia Stacjonarne")
-    public void analitykaGospodarczaStudiaStacjonarne(){
+    public void analitykaGospodarczaStudiaStacjonarne() throws InterruptedException {
      economicAnalytics.clickBachelorCheckbox();
     }
 
