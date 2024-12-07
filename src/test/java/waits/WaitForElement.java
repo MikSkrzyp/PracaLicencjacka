@@ -9,7 +9,7 @@ import java.time.Duration;
 
 public class WaitForElement {
     private static WebDriverWait getWaitForElement() {
-        return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(5));
+        return new WebDriverWait(DriverManager.getDriver(), Duration.ofSeconds(12));
     }
 
     public static void waitForElementToBeVisible(WebElement element) {

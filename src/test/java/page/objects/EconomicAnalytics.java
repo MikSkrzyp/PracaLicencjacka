@@ -32,7 +32,6 @@ public class EconomicAnalytics extends PageObjectInitializer{
         return this;
     }
     public EconomicAnalytics clickBachelorCheckbox() throws InterruptedException {
-        Thread.sleep(3000);
         bachelorCheckbox.click();
         return this;
     }
