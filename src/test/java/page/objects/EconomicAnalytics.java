@@ -1,6 +1,8 @@
 package page.objects;
 
 import driver.manager.DriverExtensions;
+import driver.manager.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -19,7 +21,10 @@ public class EconomicAnalytics extends PageObjectInitializer{
     }
 
     public EconomicAnalytics checkAlert(){
+        WebElement iframe = DriverManager.getDriver().findElement(By.id("dataFromOldWZR"));
+        DriverManager.getDriver().switchTo().frame(iframe);
         assertEquals("Program studiów dla specjalności Analityka gospodarcza na rok akademicki 2024-2025 nie został opublikowany.",economicAnalyticsAlert.getText());
+        DriverManager.getDriver().switchTo().defaultContent();
         return this;
     }
 

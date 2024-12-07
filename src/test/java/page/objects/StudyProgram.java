@@ -40,6 +40,7 @@ public class StudyProgram extends PageObjectInitializer {
         DriverManager.getDriver().switchTo().frame(iframe);
         WaitForElement.waitForElementToBeClickable(economicAnalyticsLink);
         economicAnalyticsLink.click();
+        DriverManager.getDriver().switchTo().defaultContent();
         return new EconomicAnalytics();
     }
 
