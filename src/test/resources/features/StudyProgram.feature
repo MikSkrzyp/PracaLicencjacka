@@ -26,3 +26,10 @@ Funkcja: Program Studiów
       Kiedy Wybiorę kierunek AiB
       I Zaznaczę opcję Studia Stacjonarne na stronie AiB
       Wtedy Powinienem zobaczyć tablicę z przedmiotami kierunku AiB
+
+      @chrome
+      Scenariusz: test5
+        Zakładając, że Jestem na stronie z Programem Studiów AiB
+        Kiedy Wybiorę rok 2016-2017
+        Wtedy zmieni się data
+#        I Przedmioty na tablicy się zmienią
