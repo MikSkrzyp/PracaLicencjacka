@@ -26,22 +26,6 @@ public class StudyProgramSteps {
         studyProgram.clickCookiesAlert();
     }
 
-    @Zakładającże("Jestem na stronie z Programem Studiów AiB")
-    public void aibPage(){
-        DriverExtensions.navigateToPage("https://old.wzr.ug.edu.pl/wydzial/index2.php?str=1746&studies=1&specialty=50&field=0&mode=0&mode=1");
-        aiB = new AiB();
-    }
-
-    @I("Zaznaczę opcję Studia Stacjonarne")
-    public void analitykaGospodarczaStudiaStacjonarne() throws InterruptedException {
-     economicAnalytics.clickBachelorCheckbox();
-    }
-
-    @I("Zaznaczę opcję Studia Stacjonarne na stronie AiB")
-    public void AiBBachelorCheckbox() throws InterruptedException {
-            aiB.clickBachelorCheckbox();
-    }
-
 
     @Kiedy("Wybiorę kierunek Analityka Gospodarcza")
     public void analitykaGospodarcza() throws InterruptedException {
@@ -49,19 +33,10 @@ public class StudyProgramSteps {
         economicAnalytics = studyProgram.clickOnAnalitykaGospodarczaLink();
     }
 
-
-    @Kiedy("Wybiorę rok 2016-2017")
-    public void aiBSelectDate20162017(){
-        aiB.select20162017();
-    }
-
     @Kiedy("Wybiorę kierunek AiB")
     public void AiB() throws InterruptedException {
         aiB = studyProgram.clickOnAiBLink();
     }
-
-
-
 
 
     @Wtedy("Powinienem zobaczyć tekst \"STUDIA I STOPNIA\"")
@@ -79,14 +54,9 @@ public class StudyProgramSteps {
         economicAnalytics.checkURL();
     }
 
-    @Wtedy("Powinienem zobaczyć tablicę z przedmiotami kierunku AiB")
-    public void tableOnAiBPage() throws InterruptedException {
-        aiB.isTablePresent();
-    }
-
-    @Wtedy("zmieni się data")
-    public void verifyDateChangeAiB(){
-        aiB.verify20162017OnSelectButton();
+    @I("Zaznaczę opcję Studia Stacjonarne")
+    public void analitykaGospodarczaStudiaStacjonarne() throws InterruptedException {
+        economicAnalytics.clickBachelorCheckbox();
     }
 
     @I("Zobaczyć komunikat: Program studiów dla specjalności Analityka gospodarcza na rok akademicki 2024-2025 nie został opublikowany.")
