@@ -21,4 +21,8 @@ public class WaitForElement {
         WebDriverWait wait = getWaitForElement();
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
+
+    public static void implicitWait(WebElement element){
+        DriverManager.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(4));
+    }
 }

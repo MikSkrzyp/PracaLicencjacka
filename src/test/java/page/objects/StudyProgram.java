@@ -1,10 +1,14 @@
 package page.objects;
 
+import com.beust.ah.A;
 import driver.manager.DriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import waits.WaitForElement;
+
+import java.util.List;
 
 import static org.testng.AssertJUnit.assertEquals;
 
@@ -51,5 +55,6 @@ public class StudyProgram extends PageObjectInitializer {
         aibLink.click();
         return new AiB();
     }
+
 
 }
