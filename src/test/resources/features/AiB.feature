@@ -1,7 +1,7 @@
 # language: pl
 Funkcja: Program Studiów AiB
 
-
+@firefox
 Scenariusz: test12
   Zakładając, że jestem na stronie kierunku AiB
   Kiedy zaznacze przycisk studia stacjonarne kierunku AiB

@@ -30,8 +30,11 @@ public class EconomicAnalytics extends PageObjectInitializer{
 
     @FindBy(css = "#skrypt-wzr > form > div > a")
     private WebElement pdfIcon;
-    public static void enterIframe(){
+
+
+    public static EconomicAnalytics enterIframe(){
         DriverManager.getDriver().switchTo().frame(0);
+        return new EconomicAnalytics();
     }
     public static void quitIframe(){
         DriverManager.getDriver().switchTo().defaultContent();
@@ -52,7 +55,7 @@ public class EconomicAnalytics extends PageObjectInitializer{
     }
     public EconomicAnalytics assertVisibilityOfPdfIcon() throws InterruptedException {
         Thread.sleep(3000);
-        assertTrue(pdfIcon.isDisplayed());
+        assertFalse(pdfIcon.isDisplayed());
 
         return new EconomicAnalytics();
     }

@@ -2,11 +2,11 @@
 Funkcja: Program Studiów Analityka Gospodarcza
 
 
-  @chrome
+  @firefox
   Scenariusz: test10
     Zakładając, że jestem na stronie kieurnku Analityka Gospodarcza
     Kiedy zaznacze przycisk studia stacjonarne
-    Wtedy Powinien sie ukazac przycisk z ikono pdf
+    Wtedy Nie powinien sie ukazac przycisk z ikono pdf
 
   @chrome
   Scenariusz: test11

@@ -30,13 +30,13 @@ public class StudyProgramSteps {
 
     @Kiedy("klikne Analityka Gospodarcz")
     public void clickEconomicAnalytics(){
-    StudyProgram.enterIframe();
+    studyProgram.enterIframe();
     economicAnalytics = studyProgram.clickEconomicAnalytics();
     }
 
     @Wtedy("ukażę mi się 17 kierunków")
     public void seventeenCourses(){
-        StudyProgram.enterIframe();
+        studyProgram.enterIframe();
         studyProgram.assertNumberOfCourses();
     }
 

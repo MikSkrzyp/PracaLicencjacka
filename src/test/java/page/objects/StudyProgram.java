@@ -38,8 +38,10 @@ public class StudyProgram extends PageObjectInitializer {
     }
 
 
-    public static void enterIframe(){
+    public StudyProgram enterIframe(){
         DriverManager.getDriver().switchTo().frame(0);
+
+        return new StudyProgram();
     }
     public static void quitIframe(){
         DriverManager.getDriver().switchTo().defaultContent();

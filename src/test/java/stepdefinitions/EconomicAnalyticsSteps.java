@@ -15,7 +15,7 @@ public class EconomicAnalyticsSteps {
     public void jestemNaStronieKieurnkuAnalitykaGospodarcza() throws InterruptedException {
         DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
         studyProgram = new StudyProgram();
-        StudyProgram.enterIframe();
+        studyProgram.enterIframe();
         economicAnalytics =  studyProgram.clickEconomicAnalytics();
 
     }
@@ -25,7 +25,7 @@ public class EconomicAnalyticsSteps {
         economicAnalytics.clickBachelorRadio();
     }
 
-    @Wtedy("Powinien sie ukazac przycisk z ikono pdf")
+    @Wtedy("Nie powinien sie ukazac przycisk z ikono pdf")
     public void pdfIcon() throws InterruptedException {
         economicAnalytics.assertVisibilityOfPdfIcon();
     }

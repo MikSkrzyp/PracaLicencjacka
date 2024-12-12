@@ -16,7 +16,7 @@ public class AiBSteps {
     public void jestemNaStronieKierunkuAiB() {
         DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
         studyProgram = new StudyProgram();
-        StudyProgram.enterIframe();
+        studyProgram.enterIframe();
         aiB =  studyProgram.clickAiB();
     }
 
