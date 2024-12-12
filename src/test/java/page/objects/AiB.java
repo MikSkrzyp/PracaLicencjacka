@@ -27,7 +27,7 @@ public class AiB extends PageObjectInitializer{
 
     public AiB clickBachelorRadio() {
         WaitForElement.waitForElementToBeVisible(bachelorRadio);
-        new Actions(DriverManager.getDriver()).scrollByAmount(0,500).perform();
+        new Actions(DriverManager.getDriver()).scrollByAmount(0,200).perform();
         bachelorRadio.click();
         return new AiB();
     }

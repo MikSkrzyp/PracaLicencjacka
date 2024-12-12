@@ -6,6 +6,7 @@ import io.cucumber.java.an.E;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import waits.WaitForElement;
 
@@ -38,7 +39,9 @@ public class StudyProgram extends PageObjectInitializer {
     }
 
 
-    public StudyProgram enterIframe(){
+    public StudyProgram enterIframe() throws InterruptedException {
+        Thread.sleep(2000);
+        new Actions(DriverManager.getDriver()).scrollByAmount(0,200).perform();
         DriverManager.getDriver().switchTo().frame(0);
 
         return new StudyProgram();

@@ -49,7 +49,7 @@ public class EconomicAnalytics extends PageObjectInitializer{
 
     public EconomicAnalytics clickBachelorRadio() {
         WaitForElement.waitForElementToBeVisible(bachelorRadio);
-       new Actions(DriverManager.getDriver()).scrollByAmount(0,500).perform();
+       new Actions(DriverManager.getDriver()).scrollByAmount(0,200).perform();
         bachelorRadio.click();
         return new EconomicAnalytics();
     }

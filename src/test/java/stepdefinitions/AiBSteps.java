@@ -13,7 +13,7 @@ public class AiBSteps {
     StudyProgram studyProgram;
     AiB aiB;
     @Zakładającże("jestem na stronie kierunku AiB")
-    public void jestemNaStronieKierunkuAiB() {
+    public void jestemNaStronieKierunkuAiB() throws InterruptedException {
         DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
         studyProgram = new StudyProgram();
         studyProgram.enterIframe();
