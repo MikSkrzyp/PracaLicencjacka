@@ -28,6 +28,12 @@ public class StudyProgramSteps {
 
     }
 
+    @Kiedy("klikne Analityka Gospodarcz")
+    public void clickEconomicAnalytics(){
+    StudyProgram.enterIframe();
+    economicAnalytics = studyProgram.clickEconomicAnalytics();
+    }
+
     @Wtedy("ukażę mi się 17 kierunków")
     public void seventeenCourses(){
         StudyProgram.enterIframe();
@@ -42,7 +48,10 @@ public class StudyProgramSteps {
 
 
 
-
+    @Wtedy("ukaze mi sie strona z programem studiow Analityki Gospodarczej")
+    public void pageWithEconomicAnalytics(){
+        economicAnalytics.assertTitle();
+    }
 
 
 
