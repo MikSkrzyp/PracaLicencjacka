@@ -21,6 +21,9 @@ public class StudyProgram extends PageObjectInitializer {
     @FindBy(css = "#skrypt-wzr > div.row.mt-5 > div:nth-child(1) > a")
     private WebElement economicAnalyticsButton;
 
+    @FindBy(css="#skrypt-wzr > div.row.mt-5 > div:nth-child(2) > a")
+    private WebElement aiBButton;
+
     @FindBy(css=".decline-button")
     private WebElement cookies;
 
@@ -50,6 +53,11 @@ public class StudyProgram extends PageObjectInitializer {
         WaitForElement.waitForElementToBeClickable(economicAnalyticsButton);
         economicAnalyticsButton.click();
         return new EconomicAnalytics();
+    }
+    public AiB clickAiB(){
+        WaitForElement.waitForElementToBeClickable(aiBButton);
+        aiBButton.click();
+        return new AiB();
     }
 
     public static int countNumberOfCourses() {

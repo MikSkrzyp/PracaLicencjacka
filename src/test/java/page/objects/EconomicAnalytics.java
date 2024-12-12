@@ -25,8 +25,8 @@ public class EconomicAnalytics extends PageObjectInitializer{
     private WebElement bachelorRadio;
 
 
-    @FindBy(css = "body > div")
-    private WebElement iframe;
+    @FindBy(css="#skrypt-wzr > p.komunikat")
+    private WebElement alert;
 
     @FindBy(css = "#skrypt-wzr > form > div > a")
     private WebElement pdfIcon;
@@ -53,6 +53,14 @@ public class EconomicAnalytics extends PageObjectInitializer{
     public EconomicAnalytics assertVisibilityOfPdfIcon() throws InterruptedException {
         Thread.sleep(3000);
         assertTrue(pdfIcon.isDisplayed());
+
+        return new EconomicAnalytics();
+    }
+
+    public EconomicAnalytics alertThatProgramWasNotPublished(){
+
+        WaitForElement.waitForElementToBeVisible(alert);
+        assertEquals("Program studiów dla specjalności Analityka gospodarcza na rok akademicki 2024-2025 nie został opublikowany.",alert.getText());
 
         return new EconomicAnalytics();
     }

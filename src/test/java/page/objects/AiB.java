@@ -1,10 +1,12 @@
 package page.objects;
 
+import com.beust.ah.A;
 import driver.manager.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import waits.WaitForElement;
@@ -17,53 +19,38 @@ import static org.testng.AssertJUnit.assertTrue;
 
 public class AiB extends PageObjectInitializer{
 
-    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/form[2]/div[1]/label")
-    private WebElement bachelorCheckbox;
-
-
-    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/table")
+    @FindBy(css = "#skrypt-wzr > table")
     private WebElement table;
 
-    @FindBy(xpath = "//select")
-    private WebElement yearSelect;
+    @FindBy(css = "#skrypt-wzr > form:nth-child(7) > div:nth-child(7) > label > input")
+    private WebElement bachelorRadio;
 
-
-
-    public AiB clickBachelorCheckbox(){
-        WaitForElement.waitForElementToBeVisible(bachelorCheckbox);
-        WaitForElement.waitForElementToBeClickable(bachelorCheckbox);
-        bachelorCheckbox.click();
-        return this;
+    public AiB clickBachelorRadio() {
+        WaitForElement.waitForElementToBeVisible(bachelorRadio);
+        new Actions(DriverManager.getDriver()).scrollByAmount(0,500).perform();
+        bachelorRadio.click();
+        return new AiB();
     }
 
-    public AiB isTablePresent() throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) DriverManager.getDriver();
-//        js.executeScript("window.scrollTo(0, document.body.scrollHeight);");
-        for (int i = 0; i < 5; i++) {
-            js.executeScript("window.scrollBy(0, document.body.scrollHeight / 5);");
-            Thread.sleep(1000);
-        }
+    public AiB assertTableIsPresent(){
         WaitForElement.waitForElementToBeVisible(table);
         assertTrue(table.isDisplayed());
 
+        return new AiB();
+    }
 
-        return this;
+    public AiB assertNumberOfRows(){
+        assertEquals(57,getTableRowCount());
+
+
+        return new AiB();
     }
 
 
-    public AiB select20162017(){
-        WaitForElement.waitForElementToBeVisible(yearSelect);
-        Select select = new Select(yearSelect);
-        select.selectByIndex(8);
-        return this;
-    }
-    public AiB verify20162017OnSelectButton(){
-        Select select = new Select(yearSelect);
-        String selectText = select.getFirstSelectedOption().getText();
-        assertEquals("2016-2017",selectText);
-        return this;
-    }
 
-
+    public static int getTableRowCount() {
+        List<WebElement> tableRows = DriverManager.getDriver().findElements(By.tagName("tr"));
+        return tableRows.size();
+    }
 
 }
