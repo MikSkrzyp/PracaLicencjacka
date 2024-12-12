@@ -19,23 +19,19 @@ public class StudyProgramSteps {
     private EconomicAnalytics economicAnalytics;
     private AiB aiB;
 
-    @Zakładającże("Jestem na stronie z Programem Studiów")
-    public void stronaProgramStudiow() throws InterruptedException {
-        studyProgram = new StudyProgram();
+
+
+    @Zakładającże("jestem na stronie z Programem Studiów 1 stopnia")
+    public void bachelorStudiesPage(){
         DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
-        studyProgram.clickCookiesAlert();
+        studyProgram = new StudyProgram();
+
     }
 
-
-    @Kiedy("Wybiorę kierunek Analityka Gospodarcza")
-    public void analitykaGospodarcza() throws InterruptedException {
-//        Thread.sleep(100000);
-        economicAnalytics = studyProgram.clickOnAnalitykaGospodarczaLink();
-    }
-
-    @Kiedy("Wybiorę kierunek AiB")
-    public void AiB() throws InterruptedException {
-        aiB = studyProgram.clickOnAiBLink();
+    @Wtedy("ukażę mi się 17 kierunków")
+    public void seventeenCourses(){
+        StudyProgram.enterIframe();
+        studyProgram.assertNumberOfCourses();
     }
 
 
@@ -44,23 +40,11 @@ public class StudyProgramSteps {
         studyProgram.assertTitle();
     }
 
-    @Wtedy("Nie powinien się pojawić przycisk z ikonką PDF")
-    public void economicAnalyticsPDFICON() throws InterruptedException {
-        economicAnalytics.assureThatPDFIconIsNotVisible();
-    }
 
-    @Wtedy("Powinienem zostać przeniesiony na stronę Analityki Gospodarczej")
-    public void setDataScienceBPDFPage(){
-        economicAnalytics.checkURL();
-    }
 
-    @I("Zaznaczę opcję Studia Stacjonarne")
-    public void analitykaGospodarczaStudiaStacjonarne() throws InterruptedException {
-        economicAnalytics.clickBachelorCheckbox();
-    }
 
-    @I("Zobaczyć komunikat: Program studiów dla specjalności Analityka gospodarcza na rok akademicki 2024-2025 nie został opublikowany.")
-    public void economicAnalyticsAlert(){
-        economicAnalytics.checkAlert();
-    }
+
+
+
+
 }

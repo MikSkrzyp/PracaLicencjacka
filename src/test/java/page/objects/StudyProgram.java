@@ -17,21 +17,6 @@ public class StudyProgram extends PageObjectInitializer {
     @FindBy(xpath = "//*[@id=\"taxonomy-term-714\"]/div/div/div/div/div/div/span/article/header/h2/span")
     private WebElement title;
 
-    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/div[2]/div[1]/a")
-    private WebElement economicAnalyticsLink;
-
-    @FindBy(xpath = "//*[@id=\"popup-buttons\"]/button[1]")
-    private WebElement cookiesAlert;
-
-    @FindBy(xpath = "//*[@id=\"skrypt-wzr\"]/div[2]/div[2]/a")
-    private WebElement aibLink;
-
-    public void clickCookiesAlert() throws InterruptedException {
-        Thread.sleep(3000);
-        cookiesAlert.click();
-
-
-    }
 
     public void assertTitle() {
         WaitForElement.waitForElementToBeVisible(title);
@@ -39,22 +24,21 @@ public class StudyProgram extends PageObjectInitializer {
     }
 
 
-
-    public EconomicAnalytics clickOnAnalitykaGospodarczaLink(){
-        WebElement iframe = DriverManager.getDriver().findElement(By.id("dataFromOldWZR"));
-        DriverManager.getDriver().switchTo().frame(iframe);
-        WaitForElement.waitForElementToBeClickable(economicAnalyticsLink);
-        economicAnalyticsLink.click();
-        return new EconomicAnalytics();
+    public static void enterIframe(){
+        DriverManager.getDriver().switchTo().frame(0);
+    }
+    public static void quitIframe(){
+        DriverManager.getDriver().switchTo().defaultContent();
     }
 
-    public AiB clickOnAiBLink(){
-        WebElement iframe = DriverManager.getDriver().findElement(By.id("dataFromOldWZR"));
-        DriverManager.getDriver().switchTo().frame(iframe);
-        WaitForElement.waitForElementToBeClickable(aibLink);
-        aibLink.click();
-        return new AiB();
+    public StudyProgram assertNumberOfCourses(){
+        assertEquals(17,countNumberOfCourses());
+        return new StudyProgram();
     }
 
+    public static int countNumberOfCourses() {
+        List<WebElement> divElements = DriverManager.getDriver().findElements(By.cssSelector(".col-auto.my-2"));
 
+        return divElements.size();
+    }
 }
