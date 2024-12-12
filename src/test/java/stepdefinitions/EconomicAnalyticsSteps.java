@@ -15,13 +15,13 @@ public class EconomicAnalyticsSteps {
     public void jestemNaStronieKieurnkuAnalitykaGospodarcza() throws InterruptedException {
         DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
         studyProgram = new StudyProgram();
-        studyProgram.clickCookies();
         StudyProgram.enterIframe();
-       economicAnalytics =  studyProgram.clickEconomicAnalytics();
+        economicAnalytics =  studyProgram.clickEconomicAnalytics();
+
     }
 
     @Kiedy("zaznacze przycisk studia stacjonarne")
-    public void bachelorStudiesRadioClick(){
+    public void bachelorStudiesRadioClick() {
         economicAnalytics.clickBachelorRadio();
     }
 
