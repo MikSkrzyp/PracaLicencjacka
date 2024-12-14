@@ -70,4 +70,6 @@ public class StudyProgram extends PageObjectInitializer {
 
         return divElements.size();
     }
+
+
 }

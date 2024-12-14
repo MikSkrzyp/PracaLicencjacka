@@ -25,6 +25,13 @@ public class AiB extends PageObjectInitializer{
     @FindBy(css = "#skrypt-wzr > form:nth-child(7) > div:nth-child(7) > label > input")
     private WebElement bachelorRadio;
 
+    @FindBy(css = "#skrypt-wzr > table > thead > tr")
+    private WebElement rowWithColumnNames;
+
+
+    @FindBy(css = "#skrypt-wzr > form > div > a")
+    private WebElement pdfButton;
+
     public AiB clickBachelorRadio() {
         WaitForElement.waitForElementToBeVisible(bachelorRadio);
         new Actions(DriverManager.getDriver()).scrollByAmount(0,200).perform();
@@ -51,6 +58,26 @@ public class AiB extends PageObjectInitializer{
     public static int getTableRowCount() {
         List<WebElement> tableRows = DriverManager.getDriver().findElements(By.tagName("tr"));
         return tableRows.size();
+    }
+
+    public AiB assertRowsWithColumnNames(){
+        List<WebElement> thList = rowWithColumnNames.findElements(By.tagName("th"));
+        String[] columnNames = {"Lp.", "Przedmiot", "ECTS", "Roz.", "Suma", "Wyk.", "Ćw.", "Lab.", "Sem.", "Pra.", "Jednostka"};
+
+        for(int i = 0; i<thList.size();i++){
+            String actualColumnName = thList.get(i).getText();
+            String expectedColumnName = columnNames[i];
+            assertEquals(expectedColumnName,actualColumnName);
+        }
+
+
+        return new AiB();
+    }
+
+    public AiBPDF clickPDFButton(){
+        WaitForElement.waitForElementToBeClickable(pdfButton);
+        pdfButton.click();
+        return new AiBPDF();
     }
 
 }
