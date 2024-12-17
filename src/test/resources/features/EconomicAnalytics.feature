@@ -2,7 +2,7 @@
 Funkcja: Program Studiów Analityka Gospodarcza
 
 
-  @firefox
+  @chrome
   Scenariusz: EA1
     Zakładając, że jestem na stronie kieurnku Analityka Gospodarcza
     Kiedy zaznacze przycisk studia stacjonarne

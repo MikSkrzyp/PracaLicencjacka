@@ -28,9 +28,15 @@ public class AiB extends PageObjectInitializer{
     @FindBy(css = "#skrypt-wzr > table > thead > tr")
     private WebElement rowWithColumnNames;
 
-
     @FindBy(css = "#skrypt-wzr > form > div > a")
     private WebElement pdfButton;
+
+    @FindBy(css="#skrypt-wzr > img")
+    private WebElement image;
+
+
+    @FindBy(css="#skrypt-wzr > a")
+    private WebElement getBackButton;
 
     public AiB clickBachelorRadio() {
         WaitForElement.waitForElementToBeVisible(bachelorRadio);
@@ -80,4 +86,19 @@ public class AiB extends PageObjectInitializer{
         return new AiBPDF();
     }
 
+    public AiB assertImage(){
+        WaitForElement.waitForElementToBeVisible(image);
+        String imgSRC = image.getAttribute("src");
+
+        assertEquals("https://old.wzr.ug.edu.pl/.foto/specjalnosci/naglowek/spec_50.png",imgSRC);
+
+        return new AiB();
+    }
+
+    public StudyProgram getBackToStudyPrograMPage() {
+        WaitForElement.waitForElementToBeVisible(getBackButton);
+        new Actions(DriverManager.getDriver()).scrollByAmount(0,400).perform();
+        getBackButton.click();
+        return new StudyProgram();
+    }
 }

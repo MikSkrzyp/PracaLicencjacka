@@ -53,4 +53,20 @@ public class AiBSteps {
     public void clickAiBPDF(){
      aiBPDF = aiB.clickPDFButton();
     }
+
+    @Wtedy("powinno się pojawić zdjęcię kierunku AiB")
+    public void powinnoSięPojawićZdjęcięKierunkuAiB() {
+        aiB.assertImage();
+    }
+
+    @Kiedy("kliknę przycisk wróć")
+    public void kliknęPrzyciskWróć() {
+        studyProgram = aiB.getBackToStudyPrograMPage();
+
+    }
+
+    @Wtedy("powinienem zostać przerzucony na poprzednią stronę")
+    public void powinienemZostaćPrzerzuconyNaPoprzedniąStronę() throws InterruptedException {
+        studyProgram.assertThatAiBTitleInsideIsNotVisible();
+    }
 }

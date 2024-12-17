@@ -6,7 +6,7 @@ Funkcja: Program Studiów
     Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
     Wtedy Powinienem zobaczyć tekst "STUDIA I STOPNIA"
 
-@firefox
+   @chrome
     Scenariusz: SP2
       Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
       Wtedy ukażę mi się 17 kierunków

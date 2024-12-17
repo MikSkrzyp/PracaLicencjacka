@@ -4,6 +4,7 @@ import com.beust.ah.A;
 import driver.manager.DriverManager;
 import io.cucumber.java.an.E;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -12,7 +13,7 @@ import waits.WaitForElement;
 
 import java.util.List;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.AssertJUnit.*;
 
 public class StudyProgram extends PageObjectInitializer {
 
@@ -27,6 +28,10 @@ public class StudyProgram extends PageObjectInitializer {
 
     @FindBy(css=".decline-button")
     private WebElement cookies;
+
+
+    @FindBy(css = "#skrypt-wzr > div.alert.alert-secondary.mt-4.fw-bold")
+    private WebElement aiBTItleInside;
 
     public void assertTitle() {
         WaitForElement.waitForElementToBeVisible(title);
@@ -69,6 +74,18 @@ public class StudyProgram extends PageObjectInitializer {
         List<WebElement> divElements = DriverManager.getDriver().findElements(By.cssSelector(".col-auto.my-2"));
 
         return divElements.size();
+    }
+
+    public StudyProgram assertThatAiBTitleInsideIsNotVisible() throws InterruptedException {
+        Thread.sleep(2000);
+
+
+        boolean isAiBTitleAbsent = DriverManager.getDriver().findElements(By.cssSelector("#skrypt-wzr > div.alert.alert-secondary.mt-4.fw-bold")).isEmpty();
+
+
+        assertTrue(isAiBTitleAbsent);
+
+        return new StudyProgram();
     }
 
 

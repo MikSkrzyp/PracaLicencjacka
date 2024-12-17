@@ -2,12 +2,12 @@
 Funkcja: Strona z pracownikami uczelni
 
 
-@firefox
+@chrome
   Scenariusz: S1
     Zakładając, że jestem na stronie z pracownikami UG
     Wtedy pierwszy pracownik którego zobaczę to dr Alicja Antonowicz
 
-  @firefox
+  @chrome
   Scenariusz: S2
     Zakładając, że jestem na stronie z pracownikami UG
     Kiedy klikne Dydaktycy
