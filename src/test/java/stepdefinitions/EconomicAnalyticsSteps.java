@@ -25,7 +25,7 @@ public class EconomicAnalyticsSteps {
         economicAnalytics.clickBachelorRadio();
     }
 
-    @Wtedy("Nie powinien sie ukazac przycisk z ikono pdf")
+    @Wtedy("Nie powinien sie ukazac przycisk z ikonką pdf")
     public void pdfIcon() throws InterruptedException {
         economicAnalytics.assertVisibilityOfPdfIcon();
     }
@@ -35,4 +35,14 @@ public class EconomicAnalyticsSteps {
         economicAnalytics.alertThatProgramWasNotPublished();
     }
 
+    @Kiedy("wybiorę rok {string} przy przycisku {string}")
+    public void wybioręRokPrzyPrzycisku(String arg0, String arg1) {
+        economicAnalytics.select20162017();
+
+    }
+
+    @Wtedy("wartosc sie zmieni na {string}")
+    public void wartoscSieZmieniNa(String arg0) {
+        economicAnalytics.assertSelectValue();
+    }
 }

@@ -3,11 +3,14 @@ package page.objects;
 import driver.manager.DriverExtensions;
 import driver.manager.DriverManager;
 import io.cucumber.java.an.E;
+import io.cucumber.java.bs.A;
+import io.cucumber.java.eo.Se;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import waits.WaitForElement;
 
@@ -30,6 +33,9 @@ public class EconomicAnalytics extends PageObjectInitializer{
 
     @FindBy(css = "#skrypt-wzr > form > div > a")
     private WebElement pdfIcon;
+
+    @FindBy(name = "lata")
+    private WebElement select;
 
 
     public static EconomicAnalytics enterIframe(){
@@ -65,6 +71,18 @@ public class EconomicAnalytics extends PageObjectInitializer{
         WaitForElement.waitForElementToBeVisible(alert);
         assertEquals("Program studiów dla specjalności Analityka gospodarcza na rok akademicki 2024-2025 nie został opublikowany.",alert.getText());
 
+        return new EconomicAnalytics();
+    }
+
+    public EconomicAnalytics select20162017(){
+        WaitForElement.waitForElementToBeVisible(select);
+        Select dropdown = new Select(select);
+        dropdown.selectByVisibleText("2016-2017");
+        return new EconomicAnalytics();
+    }
+    public EconomicAnalytics assertSelectValue(){
+        Select dropdown = new Select(select);
+        assertEquals("2016-2017",dropdown.getFirstSelectedOption().getText());
         return new EconomicAnalytics();
     }
 }

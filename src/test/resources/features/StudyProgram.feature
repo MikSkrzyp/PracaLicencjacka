@@ -18,3 +18,9 @@ Funkcja: Program Studiów
     Kiedy klikne Analityka Gospodarcz
     Wtedy ukaze mi sie strona z programem studiow Analityki Gospodarczej
 
+    @firefox
+    Scenariusz: SP4
+      Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
+      Kiedy kline przycisk "Dostępnosc"
+      Wtedy ukaża mi się ustawienia dostępnosci
+

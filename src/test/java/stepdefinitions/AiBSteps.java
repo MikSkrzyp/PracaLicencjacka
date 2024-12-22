@@ -69,4 +69,15 @@ public class AiBSteps {
     public void powinienemZostaćPrzerzuconyNaPoprzedniąStronę() throws InterruptedException {
         studyProgram.assertThatAiBTitleInsideIsNotVisible();
     }
+
+    @Wtedy("Pojawi się tabela SEMESTR I")
+    public void pojawiSięTabelaSEMESTRI() {
+        aiB.assertTitleOF1TermTable();
+
+    }
+
+    @I("jest wypełniona odpowiednimi danymi")
+    public void jestWypełnionaOdpowiednimiDanymi() {
+        aiB.asserValuesOfRowsOF1TermTable();
+    }
 }

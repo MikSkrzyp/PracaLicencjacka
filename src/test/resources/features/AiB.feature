@@ -32,3 +32,10 @@ Scenariusz: AiB1
       Zakładając, że jestem na stronie kierunku AiB
       Kiedy kliknę przycisk wróć
       Wtedy powinienem zostać przerzucony na poprzednią stronę
+
+      @firefox
+    Scenariusz: AiB6
+      Zakładając, że jestem na stronie kierunku AiB
+      Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
+      Wtedy Pojawi się tabela SEMESTR I
+      I jest wypełniona odpowiednimi danymi

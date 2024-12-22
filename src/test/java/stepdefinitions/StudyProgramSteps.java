@@ -54,6 +54,13 @@ public class StudyProgramSteps {
     }
 
 
+    @Kiedy("kline przycisk {string}")
+    public void klinePrzycisk(String arg0) throws InterruptedException {
+        studyProgram.clickAccessibilityButton();
+    }
 
-
+    @Wtedy("ukaża mi się ustawienia dostępnosci")
+    public void ukażaMiSięUstawieniaDostępnosci() throws InterruptedException {
+        studyProgram.assertVisibilityOfAccessibilitySettings();
+    }
 }

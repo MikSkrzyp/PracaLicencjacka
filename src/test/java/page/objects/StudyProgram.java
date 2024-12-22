@@ -29,9 +29,14 @@ public class StudyProgram extends PageObjectInitializer {
     @FindBy(css=".decline-button")
     private WebElement cookies;
 
-
     @FindBy(css = "#skrypt-wzr > div.alert.alert-secondary.mt-4.fw-bold")
     private WebElement aiBTItleInside;
+
+    @FindBy(css="#accessibility_settings_toggle > img")
+    private WebElement accesibilityButton;
+
+    @FindBy(css="#accessibility_settings")
+    private WebElement accesiblitySettings;
 
     public void assertTitle() {
         WaitForElement.waitForElementToBeVisible(title);
@@ -85,6 +90,18 @@ public class StudyProgram extends PageObjectInitializer {
 
         assertTrue(isAiBTitleAbsent);
 
+        return new StudyProgram();
+    }
+
+    public StudyProgram clickAccessibilityButton() throws InterruptedException {
+        Thread.sleep(2000);
+        accesibilityButton.click();
+        return new StudyProgram();
+    }
+
+    public StudyProgram assertVisibilityOfAccessibilitySettings() throws InterruptedException {
+        Thread.sleep(3000);
+        assertTrue(accesiblitySettings.isDisplayed());
         return new StudyProgram();
     }
 

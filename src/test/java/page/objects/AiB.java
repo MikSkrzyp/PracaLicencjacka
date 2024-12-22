@@ -11,6 +11,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.Select;
 import waits.WaitForElement;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -37,6 +39,9 @@ public class AiB extends PageObjectInitializer{
 
     @FindBy(css="#skrypt-wzr > a")
     private WebElement getBackButton;
+
+    @FindBy(css="#skrypt-wzr > table > tbody > tr:nth-child(1) > td")
+    private WebElement tabelaOF1TermTitle;
 
     public AiB clickBachelorRadio() {
         WaitForElement.waitForElementToBeVisible(bachelorRadio);
@@ -101,4 +106,61 @@ public class AiB extends PageObjectInitializer{
         getBackButton.click();
         return new StudyProgram();
     }
+
+    public AiB assertTitleOF1TermTable(){
+        WaitForElement.waitForElementToBeVisible(tabelaOF1TermTitle);
+        assertEquals("SEMESTR I",tabelaOF1TermTitle.getText())
+;
+        return new AiB();
+    }
+
+    public AiB asserValuesOfRowsOF1TermTable() {
+        WaitForElement.waitForElementToBeVisible(DriverManager.getDriver().findElement(By.tagName("tbody")));
+
+        // Locate the <tbody> element
+        WebElement tbody = DriverManager.getDriver().findElement(By.tagName("tbody"));
+
+        // Locate all <tr> rows inside <tbody>
+        List<WebElement> rows = tbody.findElements(By.tagName("tr"));
+
+        // Define expected data for assertions
+        List<List<String>> expectedData = Arrays.asList(
+                Arrays.asList("SEMESTR I"),
+                Arrays.asList("1.", "Informatyka ekonomiczna", "7", "E", "60", "15", "-", "45", "-", "-", "Katedra Informatyki Ekonomicznej"),
+                Arrays.asList("2.", "Język angielski 1", "1", "Z", "30", "-", "30", "-", "-", "-", "Centrum Języków Obcych"),
+                Arrays.asList("3.", "Makroekonomia", "5", "E", "45", "30", "15", "-", "-", "-", "Katedra Bankowości i Finansów / Wydział Ekonomiczny"),
+                Arrays.asList("4.", "Matematyka", "6", "Z", "60", "30", "30", "-", "-", "-", "Katedra Ekonometrii / Katedra Statystyki"),
+                Arrays.asList("5.", "Systemy operacyjne", "7", "Z", "75", "15", "-", "60", "-", "-", "Katedra Informatyki Ekonomicznej"),
+                Arrays.asList("6.", "Wykład do wyboru - humanistyczny", "2", "Z", "15", "15", "-", "-", "-", "-"), // Ensure this is aligned
+                Arrays.asList("RAZEM", "28", "-", "285", "105", "75", "105", "0", "0", "-")
+        );
+
+        // Loop through rows and validate data
+        for (int i = 0; i < 8; i++) {
+            WebElement row = rows.get(i);
+
+            // Locate all <td> elements in the row
+            List<WebElement> columns = row.findElements(By.tagName("td"));
+
+            // Extract text from each column and store in a list
+            List<String> actualData = new ArrayList<>();
+            for (WebElement column : columns) {
+                actualData.add(column.getText().trim());
+            }
+
+            // Remove trailing empty strings to align with expectedData
+            while (!actualData.isEmpty() && actualData.get(actualData.size() - 1).isEmpty()) {
+                actualData.remove(actualData.size() - 1);
+            }
+
+            // Get the expected row data
+            List<String> expectedRowData = expectedData.get(i);
+
+            // Assert that the actual data matches the expected data
+            assertEquals(actualData, expectedRowData);
+        }
+
+        return new AiB();
+    }
+
 }
