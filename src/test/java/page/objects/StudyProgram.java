@@ -45,6 +45,12 @@ public class StudyProgram extends PageObjectInitializer {
     @FindBy(css = "#collapseExample > ul > li:nth-child(2) > a")
     private WebElement masterStudiesLink;
 
+    @FindBy(css="[aria-label='Nagłówek']")
+    private WebElement header;
+
+    @FindBy(className = "site-footer")
+    private WebElement footer;
+
 
     public void assertTitle() {
         WaitForElement.waitForElementToBeVisible(title);
@@ -133,6 +139,15 @@ public class StudyProgram extends PageObjectInitializer {
         WaitForElement.waitForElementToBeClickable(masterStudiesLink);
         masterStudiesLink.click();
         return new MasterStudies();
+    }
+
+    public StudyProgram assertVisibilityOfHeaderFooter(){
+        WaitForElement.waitForElementToBeVisible(header);
+        assertTrue(header.isDisplayed());
+        WaitForElement.waitForElementToBeVisible(footer);
+        assertTrue(footer.isDisplayed());
+
+        return new StudyProgram();
     }
 
 

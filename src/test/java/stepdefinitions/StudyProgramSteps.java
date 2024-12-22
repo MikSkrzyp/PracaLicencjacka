@@ -80,4 +80,9 @@ public class StudyProgramSteps {
     public void zostanęPrzeniesionyNaOdpowiedniąStronę() {
         masterStudies.assertUrl();
     }
+
+    @Wtedy("na stronie jest widoczny domyslny nagłówek i stopka")
+    public void naStronieJestWidocznyDomyslnyNagłówekIStopka() {
+        studyProgram.assertVisibilityOfHeaderFooter();
+    }
 }

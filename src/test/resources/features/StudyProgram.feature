@@ -33,6 +33,7 @@ Funkcja: Program Studiów
           Kiedy wybiorę studia II stopnia w zakladce z poziomami studiów
           Wtedy zostanę przeniesiony na odpowiednią stronę
 
-#        Scenariusz: SP7
-#          Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
-#          Wtedy na stronie jest widoczny domyslny nagłówek i stopka
+          @firefox
+        Scenariusz: SP7
+          Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
+          Wtedy na stronie jest widoczny domyslny nagłówek i stopka
