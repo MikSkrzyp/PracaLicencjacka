@@ -43,6 +43,7 @@ public class AiB extends PageObjectInitializer{
     @FindBy(css="#skrypt-wzr > table > tbody > tr:nth-child(1) > td")
     private WebElement tabelaOF1TermTitle;
 
+
     public AiB clickBachelorRadio() {
         WaitForElement.waitForElementToBeVisible(bachelorRadio);
         new Actions(DriverManager.getDriver()).scrollByAmount(0,200).perform();
@@ -162,5 +163,6 @@ public class AiB extends PageObjectInitializer{
 
         return new AiB();
     }
+
 
 }

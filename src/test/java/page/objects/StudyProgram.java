@@ -3,6 +3,7 @@ package page.objects;
 import com.beust.ah.A;
 import driver.manager.DriverManager;
 import io.cucumber.java.an.E;
+import io.cucumber.java.it.Ma;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -37,6 +38,13 @@ public class StudyProgram extends PageObjectInitializer {
 
     @FindBy(css="#accessibility_settings")
     private WebElement accesiblitySettings;
+
+    @FindBy(css="ol.breadcrumb")
+    private WebElement breadcrumbContainer;
+
+    @FindBy(css = "#collapseExample > ul > li:nth-child(2) > a")
+    private WebElement masterStudiesLink;
+
 
     public void assertTitle() {
         WaitForElement.waitForElementToBeVisible(title);
@@ -103,6 +111,28 @@ public class StudyProgram extends PageObjectInitializer {
         Thread.sleep(3000);
         assertTrue(accesiblitySettings.isDisplayed());
         return new StudyProgram();
+    }
+
+    public StudyProgram assertPath() {
+        List<WebElement> breadcrumbItems = breadcrumbContainer.findElements(By.cssSelector("li.breadcrumb-item"));
+        StringBuilder actualPathBuilder = new StringBuilder();
+        for (WebElement item : breadcrumbItems) {
+            actualPathBuilder.append(item.getText());
+            actualPathBuilder.append(" / ");
+        }
+
+// Remove the trailing " / " from the end of the path
+        String actualPath = actualPathBuilder.toString().replaceAll(" / $", "");
+
+        assertEquals("Strona główna / Wydział / Programy studiów / Studia w języku polskim",actualPath);
+
+        return new StudyProgram();
+    }
+
+    public MasterStudies goToMasterStudies(){
+        WaitForElement.waitForElementToBeClickable(masterStudiesLink);
+        masterStudiesLink.click();
+        return new MasterStudies();
     }
 
 

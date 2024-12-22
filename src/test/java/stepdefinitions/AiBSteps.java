@@ -80,4 +80,5 @@ public class AiBSteps {
     public void jestWypełnionaOdpowiednimiDanymi() {
         aiB.asserValuesOfRowsOF1TermTable();
     }
+
 }

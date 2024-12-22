@@ -39,3 +39,5 @@ Scenariusz: AiB1
       Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
       Wtedy Pojawi się tabela SEMESTR I
       I jest wypełniona odpowiednimi danymi
+
+
