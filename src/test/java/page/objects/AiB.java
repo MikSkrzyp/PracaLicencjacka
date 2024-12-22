@@ -16,8 +16,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-import static org.testng.AssertJUnit.assertEquals;
-import static org.testng.AssertJUnit.assertTrue;
+import static org.testng.AssertJUnit.*;
 
 public class AiB extends PageObjectInitializer{
 
@@ -42,6 +41,9 @@ public class AiB extends PageObjectInitializer{
 
     @FindBy(css="#skrypt-wzr > table > tbody > tr:nth-child(1) > td")
     private WebElement tabelaOF1TermTitle;
+
+    @FindBy(css="#skrypt-wzr > p.komunikat")
+    private WebElement alert;
 
 
     public AiB clickBachelorRadio() {
@@ -160,6 +162,13 @@ public class AiB extends PageObjectInitializer{
             // Assert that the actual data matches the expected data
             assertEquals(actualData, expectedRowData);
         }
+
+        return new AiB();
+    }
+
+    public AiB assertAlertDoesNotAppear() throws InterruptedException {
+        Thread.sleep(3000);
+        assertFalse(alert.isDisplayed());
 
         return new AiB();
     }

@@ -40,4 +40,26 @@ Scenariusz: AiB1
       Wtedy Pojawi się tabela SEMESTR I
       I jest wypełniona odpowiednimi danymi
 
+    Scenariusz: AiB7
+      Zakładając, że jestem na stronie kierunku AiB
+      Wtedy nie powinienem dostać alertu że program studiów na kierunku AiB nie został opublikowany
+#
+#    Scenariusz: AiB8
+#      Zakładając, że jestem na stronie kierunku AiB
+#      Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
+#      Wtedy Pojawi się tabela SEMESTR II
+#      I liczba ECTS'ów każdego przedmiotu się odpowiednio sumuje
+#
+#  Scenariusz: AiB9
+#    Zakładając, że jestem na stronie kierunku AiB
+#    Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
+#    Wtedy Pojawi się tabela SEMESTR III
+#    I kolumna Roz. ma wartosci zgodne z legenda (E lub Z)
+
+#  Scenariusz: AiB10
+#    Zakładając, że jestem na stronie kierunku AiB
+#    Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
+#    I przejadę całą stronę
+#    Wtedy powinny się ukazać zsumowany wartosci dla wszystkich semestrow
+
 

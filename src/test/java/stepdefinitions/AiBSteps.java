@@ -81,4 +81,8 @@ public class AiBSteps {
         aiB.asserValuesOfRowsOF1TermTable();
     }
 
+    @Wtedy("nie powinienem dostać alertu że program studiów na kierunku AiB nie został opublikowany")
+    public void niePowinienemDostaćAlertuŻeProgramStudiówKaKierunkuAiBNieZostałOpublikowany() throws InterruptedException {
+        aiB.assertAlertDoesNotAppear();
+    }
 }
