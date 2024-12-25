@@ -42,8 +42,14 @@ public class AiB extends PageObjectInitializer{
     @FindBy(css="#skrypt-wzr > table > tbody > tr:nth-child(1) > td")
     private WebElement tabelaOF1TermTitle;
 
+    @FindBy(css="#skrypt-wzr > table > tbody > tr:nth-child(9) > td")
+    private WebElement tableOf2TermTitle;
+
     @FindBy(css="#skrypt-wzr > p.komunikat")
     private WebElement alert;
+
+    @FindBy(css="#skrypt-wzr > table > tbody > tr")
+    private WebElement tableRowSelector;
 
 
     public AiB clickBachelorRadio() {
@@ -120,13 +126,13 @@ public class AiB extends PageObjectInitializer{
     public AiB asserValuesOfRowsOF1TermTable() {
         WaitForElement.waitForElementToBeVisible(DriverManager.getDriver().findElement(By.tagName("tbody")));
 
-        // Locate the <tbody> element
+
         WebElement tbody = DriverManager.getDriver().findElement(By.tagName("tbody"));
 
-        // Locate all <tr> rows inside <tbody>
+
         List<WebElement> rows = tbody.findElements(By.tagName("tr"));
 
-        // Define expected data for assertions
+
         List<List<String>> expectedData = Arrays.asList(
                 Arrays.asList("SEMESTR I"),
                 Arrays.asList("1.", "Informatyka ekonomiczna", "7", "E", "60", "15", "-", "45", "-", "-", "Katedra Informatyki Ekonomicznej"),
@@ -138,28 +144,28 @@ public class AiB extends PageObjectInitializer{
                 Arrays.asList("RAZEM", "28", "-", "285", "105", "75", "105", "0", "0", "-")
         );
 
-        // Loop through rows and validate data
+
         for (int i = 0; i < 8; i++) {
             WebElement row = rows.get(i);
 
-            // Locate all <td> elements in the row
+
             List<WebElement> columns = row.findElements(By.tagName("td"));
 
-            // Extract text from each column and store in a list
+
             List<String> actualData = new ArrayList<>();
             for (WebElement column : columns) {
                 actualData.add(column.getText().trim());
             }
 
-            // Remove trailing empty strings to align with expectedData
+
             while (!actualData.isEmpty() && actualData.get(actualData.size() - 1).isEmpty()) {
                 actualData.remove(actualData.size() - 1);
             }
 
-            // Get the expected row data
+
             List<String> expectedRowData = expectedData.get(i);
 
-            // Assert that the actual data matches the expected data
+
             assertEquals(actualData, expectedRowData);
         }
 
@@ -170,6 +176,27 @@ public class AiB extends PageObjectInitializer{
         Thread.sleep(3000);
         assertFalse(alert.isDisplayed());
 
+        return new AiB();
+    }
+
+    public AiB assertTitleOF2TermTable(){
+        WaitForElement.waitForElementToBeVisible(tableOf2TermTitle);
+        assertEquals("SEMESTR II",tableOf2TermTitle.getText())
+        ;
+        return new AiB();
+    }
+
+    public AiB assertSumOFECTS(){
+        WaitForElement.waitForElementToBeVisible(tableRowSelector);
+        double sum =0.0;
+        for (int i = 10; i <= 17; i++) {
+            String cellSelector = "#skrypt-wzr > table > tbody > tr:nth-child(" + i + ") > td:nth-child(3)";            WebElement cell = DriverManager.getDriver().findElement(By.cssSelector(cellSelector));
+            sum += Double.parseDouble(cell.getText().replace(",", "").replaceAll("[^0-9.]", ""));
+        }
+        WebElement targetCell = DriverManager.getDriver().findElement(By.cssSelector("#skrypt-wzr > table > tbody > tr:nth-child(18) > td:nth-child(2)"));
+        double expectedValue = Double.parseDouble(targetCell.getText().replace(",", "").replaceAll("[^0-9.]", ""));
+        System.out.println(sum);
+        assertEquals(expectedValue,sum);
         return new AiB();
     }
 

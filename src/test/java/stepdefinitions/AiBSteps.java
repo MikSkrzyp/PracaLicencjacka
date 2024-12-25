@@ -85,4 +85,14 @@ public class AiBSteps {
     public void niePowinienemDostaćAlertuŻeProgramStudiówKaKierunkuAiBNieZostałOpublikowany() throws InterruptedException {
         aiB.assertAlertDoesNotAppear();
     }
+
+    @Wtedy("Pojawi się tabela SEMESTR II")
+    public void pojawiSięTabelaSEMESTRII() {
+        aiB.assertTitleOF2TermTable();
+    }
+
+    @I("liczba ECTS'ów każdego przedmiotu się odpowiednio sumuje")
+    public void liczbaECTSÓwKażdegoPrzedmiotuSięOdpowiednioSumuje() {
+        aiB.assertSumOFECTS();
+    }
 }

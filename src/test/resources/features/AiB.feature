@@ -43,12 +43,12 @@ Scenariusz: AiB1
     Scenariusz: AiB7
       Zakładając, że jestem na stronie kierunku AiB
       Wtedy nie powinienem dostać alertu że program studiów na kierunku AiB nie został opublikowany
-#
-#    Scenariusz: AiB8
-#      Zakładając, że jestem na stronie kierunku AiB
-#      Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
-#      Wtedy Pojawi się tabela SEMESTR II
-#      I liczba ECTS'ów każdego przedmiotu się odpowiednio sumuje
+
+    Scenariusz: AiB8
+      Zakładając, że jestem na stronie kierunku AiB
+      Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
+      Wtedy Pojawi się tabela SEMESTR II
+      I liczba ECTS'ów każdego przedmiotu się odpowiednio sumuje
 #
 #  Scenariusz: AiB9
 #    Zakładając, że jestem na stronie kierunku AiB
