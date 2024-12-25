@@ -100,4 +100,9 @@ public class AiBSteps {
     public void kolumnaRozMaWartosciZgodneZLegendaELubZ() {
         aiB.assertRozValues();
     }
+
+    @Wtedy("powinny się ukazać zsumowany wartosci dla wszystkich semestrow")
+    public void powinnySięUkazaćZsumowanyWartosciDlaWszystkichSemestrow() {
+        aiB.assertTotalValues();
+    }
 }

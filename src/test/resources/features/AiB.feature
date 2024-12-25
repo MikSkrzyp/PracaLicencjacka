@@ -56,10 +56,10 @@ Scenariusz: AiB1
     Wtedy Pojawi się tabela SEMESTR II
     I kolumna Roz. ma wartosci zgodne z legenda (E lub Z)
 
-#  Scenariusz: AiB10
-#    Zakładając, że jestem na stronie kierunku AiB
-#    Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
-#    I przejadę całą stronę
-#    Wtedy powinny się ukazać zsumowany wartosci dla wszystkich semestrow
+    @firefox
+  Scenariusz: AiB10
+    Zakładając, że jestem na stronie kierunku AiB
+    Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
+    Wtedy powinny się ukazać zsumowany wartosci dla wszystkich semestrow
 
 

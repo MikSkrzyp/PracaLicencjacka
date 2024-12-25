@@ -215,6 +215,18 @@ public class AiB extends PageObjectInitializer{
 
         return new AiB();
     }
+    public AiB assertTotalValues(){
+        WebElement dataRow = DriverManager.getDriver().findElement(By.xpath("//tr[td[contains(text(), 'ŁĄCZNIE')]]"));
+        List<WebElement> columns = dataRow.findElements(By.xpath("./td[position() > 1]"));
 
+        List<String> expectedValues = Arrays.asList("180", "-", "2030", "615", "420", "810", "65", "120", "-");
+        List<String> actualValues = new ArrayList<>();
+
+        for (WebElement column : columns) {
+            actualValues.add(column.getText().trim());
+        }
+        assertEquals(expectedValues,actualValues);
+        return new AiB();
+    }
 
 }
