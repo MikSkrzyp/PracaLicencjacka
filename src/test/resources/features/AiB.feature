@@ -50,11 +50,11 @@ Scenariusz: AiB1
       Wtedy Pojawi się tabela SEMESTR II
       I liczba ECTS'ów każdego przedmiotu się odpowiednio sumuje
 #
-#  Scenariusz: AiB9
-#    Zakładając, że jestem na stronie kierunku AiB
-#    Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
-#    Wtedy Pojawi się tabela SEMESTR III
-#    I kolumna Roz. ma wartosci zgodne z legenda (E lub Z)
+  Scenariusz: AiB9
+    Zakładając, że jestem na stronie kierunku AiB
+    Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
+    Wtedy Pojawi się tabela SEMESTR II
+    I kolumna Roz. ma wartosci zgodne z legenda (E lub Z)
 
 #  Scenariusz: AiB10
 #    Zakładając, że jestem na stronie kierunku AiB

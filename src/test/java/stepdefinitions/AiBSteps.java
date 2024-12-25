@@ -93,6 +93,11 @@ public class AiBSteps {
 
     @I("liczba ECTS'ów każdego przedmiotu się odpowiednio sumuje")
     public void liczbaECTSÓwKażdegoPrzedmiotuSięOdpowiednioSumuje() {
-        aiB.assertSumOFECTS();
+        aiB.assertSumOfECTS();
+    }
+
+    @I("kolumna Roz. ma wartosci zgodne z legenda \\(E lub Z)")
+    public void kolumnaRozMaWartosciZgodneZLegendaELubZ() {
+        aiB.assertRozValues();
     }
 }

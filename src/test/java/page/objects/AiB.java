@@ -186,7 +186,7 @@ public class AiB extends PageObjectInitializer{
         return new AiB();
     }
 
-    public AiB assertSumOFECTS(){
+    public AiB assertSumOfECTS(){
         WaitForElement.waitForElementToBeVisible(tableRowSelector);
         double sum =0.0;
         for (int i = 10; i <= 17; i++) {
@@ -195,8 +195,24 @@ public class AiB extends PageObjectInitializer{
         }
         WebElement targetCell = DriverManager.getDriver().findElement(By.cssSelector("#skrypt-wzr > table > tbody > tr:nth-child(18) > td:nth-child(2)"));
         double expectedValue = Double.parseDouble(targetCell.getText().replace(",", "").replaceAll("[^0-9.]", ""));
-        System.out.println(sum);
+//        System.out.println(sum);
         assertEquals(expectedValue,sum);
+        return new AiB();
+    }
+    public AiB assertRozValues(){
+
+
+        for (int i = 10; i <= 17; i++) {
+            String cellXPath = "//*[@id='skrypt-wzr']/table/tbody/tr[" + i + "]/td[4]";
+            WebElement cell = DriverManager.getDriver().findElement(By.xpath(cellXPath));
+
+
+            String cellText = cell.getText().trim();
+
+
+            assertTrue(cellText.equals("Z") || cellText.equals("E"));}
+
+
         return new AiB();
     }
 
