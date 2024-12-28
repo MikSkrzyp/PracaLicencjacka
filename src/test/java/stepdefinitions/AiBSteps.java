@@ -35,22 +35,22 @@ public class AiBSteps {
 
 
     @Wtedy("otworzy się strona z PDF")
-    public void pdfPage() throws InterruptedException {
+    public void otworzySieStronaZPDF() throws InterruptedException {
         aiBPDF.assertThatPageWithPDFIsOpened();
     }
 
     @I("ma 57 rzędów")
-    public void numberOfRowsInTable(){
+    public void ma57Rzedow(){
         aiB.assertNumberOfRows();
     }
 
     @I("ma okreslone nazwy kolumn")
-    public void columnNames(){
+    public void maOkresloneNazwyKolumn(){
         aiB.assertRowsWithColumnNames();
     }
 
     @I("klikne przycisk z plikiem PDF")
-    public void clickAiBPDF(){
+    public void kliknePrzyciskZPlikiemPDF(){
      aiBPDF = aiB.clickPDFButton();
     }
 

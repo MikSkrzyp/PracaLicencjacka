@@ -15,19 +15,19 @@ public class StaffSteps {
     }
 
     @Kiedy("klikne Dydaktycy")
-    public void clickWladze(){
+    public void klkkneDydaktycy(){
     Staff.enterIframe();
     staff.clickDydaktycyButton();
     }
 
     @Wtedy("pierwszy pracownik którego zobaczę to dr Alicja Antonowicz")
-    public void drAlicjaAntoniwczName(){
+    public void pierwszyPracownikKtoregoZobaczeToDrAlicjaAntonowicz(){
         Staff.enterIframe();
         staff.assertDrAnotnowiczName();
     }
 
     @Wtedy("liczba pracowników na stronie powinna być równa 4")
-    public void numberOfEmployeesEqualTo4() throws InterruptedException {
+    public void liczbaPracownikowNaStroniePowinnaBycRowna4() throws InterruptedException {
         staff.assertNumberOfEmployees();
     }
 

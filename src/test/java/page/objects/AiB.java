@@ -190,7 +190,8 @@ public class AiB extends PageObjectInitializer{
         WaitForElement.waitForElementToBeVisible(tableRowSelector);
         double sum =0.0;
         for (int i = 10; i <= 17; i++) {
-            String cellSelector = "#skrypt-wzr > table > tbody > tr:nth-child(" + i + ") > td:nth-child(3)";            WebElement cell = DriverManager.getDriver().findElement(By.cssSelector(cellSelector));
+            String cellSelector = "#skrypt-wzr > table > tbody > tr:nth-child(" + i + ") > td:nth-child(3)";
+            WebElement cell = DriverManager.getDriver().findElement(By.cssSelector(cellSelector));
             sum += Double.parseDouble(cell.getText().replace(",", "").replaceAll("[^0-9.]", ""));
         }
         WebElement targetCell = DriverManager.getDriver().findElement(By.cssSelector("#skrypt-wzr > table > tbody > tr:nth-child(18) > td:nth-child(2)"));

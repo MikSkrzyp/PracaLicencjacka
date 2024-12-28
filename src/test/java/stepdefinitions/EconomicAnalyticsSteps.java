@@ -21,17 +21,17 @@ public class EconomicAnalyticsSteps {
     }
 
     @Kiedy("zaznacze przycisk studia stacjonarne")
-    public void bachelorStudiesRadioClick() {
+    public void zaznaczePrzyciskStudiaStacjonarne() {
         economicAnalytics.clickBachelorRadio();
     }
 
     @Wtedy("Nie powinien sie ukazac przycisk z ikonką pdf")
-    public void pdfIcon() throws InterruptedException {
+    public void niePowinienSieUkazacPrzyciskZIkonkaPDF() throws InterruptedException {
         economicAnalytics.assertVisibilityOfPdfIcon();
     }
 
     @Wtedy("powinna się ukazać wiadomosc: Program studiów dla specjalności Analityka gospodarcza na rok akademicki 2024-2025 nie został opublikowany.")
-    public void alertThatProgramIsNotPublished(){
+    public void powinnaSieUkazacWiadomoscProgramStudiowDlaSpecjalnosciAnalitykaGospodarczaNaRokAkademicki20242025NieZostalOpublikowany(){
         economicAnalytics.alertThatProgramWasNotPublished();
     }
 

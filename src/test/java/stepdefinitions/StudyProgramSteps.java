@@ -24,34 +24,31 @@ public class StudyProgramSteps {
 
 
     @Zakładającże("jestem na stronie z Programem Studiów 1 stopnia")
-    public void bachelorStudiesPage(){
+    public void jestemNaStronieZProgramemStudiow1Stopnia(){
         DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
         studyProgram = new StudyProgram();
 
     }
 
     @Kiedy("klikne Analityka Gospodarcza")
-    public void clickEconomicAnalytics() throws InterruptedException {
+    public void klikneAnalitykaGospodarcza() throws InterruptedException {
     studyProgram.enterIframe();
     economicAnalytics = studyProgram.clickEconomicAnalytics();
     }
 
     @Wtedy("ukażę mi się 17 kierunków")
-    public void seventeenCourses() throws InterruptedException {
+    public void ukazaMiSie17Kierunkow() throws InterruptedException {
         studyProgram.enterIframe();
         studyProgram.assertNumberOfCourses();
     }
 
 
-    @Wtedy("Powinienem zobaczyć tekst \"STUDIA I STOPNIA\"")
-    public void assertTitle(){
-        studyProgram.assertTitle();
-    }
+
 
 
 
     @Wtedy("ukaze mi sie strona z programem studiow Analityki Gospodarczej")
-    public void pageWithEconomicAnalytics(){
+    public void ukazeMiSieStronaZProgramemStudiowAnalitykiGospodarczej(){
         economicAnalytics.assertTitle();
     }
 
@@ -84,5 +81,10 @@ public class StudyProgramSteps {
     @Wtedy("na stronie jest widoczny domyslny nagłówek i stopka")
     public void naStronieJestWidocznyDomyslnyNagłówekIStopka() {
         studyProgram.assertVisibilityOfHeaderFooter();
+    }
+
+    @Wtedy("Powinienem zobaczyć tekst {string}")
+    public void powinienemZobaczyćTekst(String arg0) {
+        studyProgram.assertTitle();
     }
 }
