@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Preparing Tests') {
             steps {
-                bat 'mvn clean install -DskipTests'
+                sh 'mvn clean install -DskipTests'
             }
         }
         stage('Executing Tests') {
             steps {
-                bat 'mvn test'
+                sh 'mvn test'
             }
         }
         stage('Generating Testing Report') {
