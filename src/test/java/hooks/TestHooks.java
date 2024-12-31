@@ -44,6 +44,7 @@ public class TestHooks {
 
         DriverExtensions.maximizeWindow();
         DriverExtensions.navigateToPage(baseUrl);
+        DriverExtensions.displayBrowser(browser);
         System.out.println("Running Scenario: " + scenario.getName() + " on browser: " + browser);
     }
 

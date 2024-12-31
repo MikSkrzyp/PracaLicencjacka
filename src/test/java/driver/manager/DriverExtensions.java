@@ -15,6 +15,11 @@ public class DriverExtensions {
         DriverManager.getDriver().navigate().to(url);
     }
 
+    @Step("Running test with {browser}")
+    public static void displayBrowser(String browser){
+
+    }
+
     public static String getCurrentUrl() {
         return DriverManager.getDriver().getCurrentUrl();
     }
