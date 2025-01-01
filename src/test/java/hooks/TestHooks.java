@@ -25,9 +25,8 @@ public class TestHooks {
 
     @Before(order = 1)
     public void setupDriver(Scenario scenario)  {
-        String browser = ConfigurationProperties.getProperties().getProperty("browser"); // Default browser is Chrome
+        String browser = ConfigurationProperties.getProperties().getProperty("browser");
 
-        // Check for browser tag in the scenario
         if (scenario.getSourceTagNames().contains("@firefox")) {
             browser = "FIREFOX";
         } else if (scenario.getSourceTagNames().contains("@chrome")) {
@@ -39,11 +38,9 @@ public class TestHooks {
             browser = "SAFARI";
         }
 
-        String baseUrl = ConfigurationProperties.getProperties().getProperty("url");
         DriverManager.setDriver(BrowserTypes.valueOf(browser));
 
         DriverExtensions.maximizeWindow();
-        DriverExtensions.navigateToPage(baseUrl);
         DriverExtensions.displayBrowser(browser);
         System.out.println("Running Scenario: " + scenario.getName() + " on browser: " + browser);
     }

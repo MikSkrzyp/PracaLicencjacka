@@ -5,12 +5,13 @@ import io.cucumber.java.pl.Kiedy;
 import io.cucumber.java.pl.Wtedy;
 import io.cucumber.java.pl.Zakładającże;
 import page.objects.Staff;
+import utils.URLS;
 
 public class StaffSteps {
     private Staff staff;
     @Zakładającże("jestem na stronie z pracownikami UG")
     public void jestemNaStronieZPracownikamiUG() {
-        DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/pracownicy");
+        URLS.loadStaffPage();
         staff = new Staff();
     }
 

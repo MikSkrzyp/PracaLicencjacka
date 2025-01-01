@@ -8,6 +8,7 @@ import io.cucumber.java.pl.Zakładającże;
 import page.objects.AiB;
 import page.objects.AiBPDF;
 import page.objects.StudyProgram;
+import utils.URLS;
 
 public class AiBSteps {
 
@@ -17,7 +18,7 @@ public class AiBSteps {
 
     @Zakładającże("jestem na stronie kierunku AiB")
     public void jestemNaStronieKierunkuAiB() throws InterruptedException {
-        DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
+        URLS.loadStudyProgramPage();
         studyProgram = new StudyProgram();
         studyProgram.enterIframe();
         aiB =  studyProgram.clickAiB();

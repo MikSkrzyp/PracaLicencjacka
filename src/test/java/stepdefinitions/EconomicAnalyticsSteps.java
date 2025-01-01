@@ -6,6 +6,7 @@ import io.cucumber.java.pl.Wtedy;
 import io.cucumber.java.pl.Zakładającże;
 import page.objects.EconomicAnalytics;
 import page.objects.StudyProgram;
+import utils.URLS;
 
 public class EconomicAnalyticsSteps {
     EconomicAnalytics economicAnalytics;
@@ -13,7 +14,7 @@ public class EconomicAnalyticsSteps {
 
     @Zakładającże("jestem na stronie kieurnku Analityka Gospodarcza")
     public void jestemNaStronieKieurnkuAnalitykaGospodarcza() throws InterruptedException {
-        DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
+        URLS.loadStudyProgramPage();
         studyProgram = new StudyProgram();
         studyProgram.enterIframe();
         economicAnalytics =  studyProgram.clickEconomicAnalytics();

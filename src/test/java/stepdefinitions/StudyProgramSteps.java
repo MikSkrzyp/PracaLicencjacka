@@ -11,6 +11,7 @@ import page.objects.AiB;
 import page.objects.EconomicAnalytics;
 import page.objects.MasterStudies;
 import page.objects.StudyProgram;
+import utils.URLS;
 
 import static org.testng.AssertJUnit.assertEquals;
 import static org.testng.AssertJUnit.assertTrue;
@@ -25,7 +26,7 @@ public class StudyProgramSteps {
 
     @Zakładającże("jestem na stronie z Programem Studiów 1 stopnia")
     public void jestemNaStronieZProgramemStudiow1Stopnia(){
-        DriverExtensions.navigateToPage("https://wzr.ug.edu.pl/wydzial/programy-studiow/studia-w-jezyku-polskim/studia-i-stopnia");
+        URLS.loadStudyProgramPage();
         studyProgram = new StudyProgram();
 
     }
