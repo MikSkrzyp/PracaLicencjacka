@@ -127,7 +127,6 @@ public class StudyProgram extends PageObjectInitializer {
             actualPathBuilder.append(" / ");
         }
 
-// Remove the trailing " / " from the end of the path
         String actualPath = actualPathBuilder.toString().replaceAll(" / $", "");
 
         assertEquals("Strona główna / Wydział / Programy studiów / Studia w języku polskim",actualPath);
