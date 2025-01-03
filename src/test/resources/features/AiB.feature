@@ -60,6 +60,6 @@ Scenariusz: AiB1
   Scenariusz: AiB10
     Zakładając, że jestem na stronie kierunku AiB
     Kiedy zaznacze przycisk studia stacjonarne kierunku AiB
-    Wtedy powinny się ukazać zsumowany wartosci dla wszystkich semestrow
+    Wtedy powinny się ukazać zsumowane wartosci dla wszystkich semestrow
 
 

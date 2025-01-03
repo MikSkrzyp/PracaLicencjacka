@@ -17,7 +17,7 @@ import utils.RetryAnalyzer;
 
 public class CucumberTestRunner extends AbstractTestNGCucumberTests {
     @Override
-    @DataProvider(parallel = true)  // This enables parallel execution of scenarios
+    @DataProvider(parallel = true)
     public Object[][] scenarios() {
         return super.scenarios();
     }

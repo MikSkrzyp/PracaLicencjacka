@@ -102,8 +102,8 @@ public class AiBSteps {
         aiB.assertRozValues();
     }
 
-    @Wtedy("powinny się ukazać zsumowany wartosci dla wszystkich semestrow")
-    public void powinnySięUkazaćZsumowanyWartosciDlaWszystkichSemestrow() {
+    @Wtedy("powinny się ukazać zsumowane wartosci dla wszystkich semestrow")
+    public void powinnySięUkazaćZsumowaneWartosciDlaWszystkichSemestrow() {
         aiB.assertTotalValues();
     }
 }
