@@ -1,39 +1,40 @@
 # language: pl
 Funkcja: Program Studiów
 
-@chrome
-  Scenariusz: SP1
-    Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
-    Wtedy Powinienem zobaczyć tekst "STUDIA I STOPNIA"
+    @chrome
+    Scenariusz:[PS-001] Tekst STUDIA I STOPNIA
+      Zakładając, że jestem na stronie z Programem Studiów I stopnia
+      Wtedy powinienem zobaczyć tekst "STUDIA I STOPNIA"
 
-   @chrome
-    Scenariusz: SP2
-      Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
-      Wtedy ukażę mi się 17 kierunków
+    @chrome
+    Scenariusz:[PS-002] Odpowiednia liczba kierunków studiów
+      Zakładając, że jestem na stronie z Programem Studiów I stopnia
+      Wtedy ukaże mi się 17 kierunków studiów
 
-
-  @chrome
-  Scenariusz: SP3
-    Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
-    Kiedy klikne Analityka Gospodarcza
-    Wtedy ukaze mi sie strona z programem studiow Analityki Gospodarczej
+    @chrome
+    Scenariusz:[PS-003] Wybranie Kierunku
+      Zakładając, że jestem na stronie z Programem Studiów I stopnia
+      Kiedy wybiorę kierunek Analityka Gospodarcza
+      Wtedy ukaże mi się strona z programem studiów kierunku Analityki Gospodarczej
 
     @firefox
-    Scenariusz: SP4
-      Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
-      Kiedy kline przycisk "Dostępnosc"
-      Wtedy ukaża mi się ustawienia dostępnosci
+    Scenariusz:[PS-004] Ustawienia Dostępności
+      Zakładając, że jestem na stronie z Programem Studiów I stopnia
+      Kiedy kliknę przycisk "Dostępność"
+      Wtedy wyskoczy pop-up z ustawieniami dostępności
 
-      Scenariusz: SP5
-        Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
-        Wtedy powinienem zostać poinformowany o poprzednich przejsciach aby dojsc do aktualnej strony
+    @chrome
+    Scenariusz:[PS-005] Ścieżka strony
+      Zakładając, że jestem na stronie z Programem Studiów I stopnia
+      Wtedy powinienem zostać poinformowany o poprzednich koniecznych aby dojsc do aktualnej strony
 
-        Scenariusz: SP6
-          Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
-          Kiedy wybiorę studia II stopnia w zakladce z poziomami studiów
-          Wtedy zostanę przeniesiony na odpowiednią stronę
+    @chrome
+    Scenariusz:[PS-006] Przejście na stronę ze studiami II stopnia
+      Zakładając, że jestem na stronie z Programem Studiów I stopnia
+      Kiedy wybiorę studia II stopnia w zakładce z poziomami studiów
+      Wtedy zostanę przeniesiony na odpowiednią stronę z kierunkami studiów II stopnia
 
-          @firefox
-        Scenariusz: SP7
-          Zakładając, że jestem na stronie z Programem Studiów 1 stopnia
-          Wtedy na stronie jest widoczny domyslny nagłówek i stopka
+    @firefox
+    Scenariusz:[PS-007] Domyślny nagłówek i stopka
+      Zakładając, że jestem na stronie z Programem Studiów I stopnia
+      Wtedy na stronie obecny jest domyślny nagłówek i stopka

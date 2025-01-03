@@ -24,67 +24,62 @@ public class StudyProgramSteps {
 
 
 
-    @Zakładającże("jestem na stronie z Programem Studiów 1 stopnia")
+    @Zakładającże("jestem na stronie z Programem Studiów I stopnia")
     public void jestemNaStronieZProgramemStudiow1Stopnia(){
         URLS.loadStudyProgramPage();
         studyProgram = new StudyProgram();
 
     }
 
-    @Kiedy("klikne Analityka Gospodarcza")
+    @Kiedy("wybiorę kierunek Analityka Gospodarcza")
     public void klikneAnalitykaGospodarcza() throws InterruptedException {
     studyProgram.enterIframe();
     economicAnalytics = studyProgram.clickEconomicAnalytics();
     }
 
-    @Wtedy("ukażę mi się 17 kierunków")
+    @Wtedy("ukaże mi się 17 kierunków studiów")
     public void ukazaMiSie17Kierunkow() throws InterruptedException {
         studyProgram.enterIframe();
         studyProgram.assertNumberOfCourses();
     }
 
-
-
-
-
-
-    @Wtedy("ukaze mi sie strona z programem studiow Analityki Gospodarczej")
+    @Wtedy("ukaże mi się strona z programem studiów kierunku Analityki Gospodarczej")
     public void ukazeMiSieStronaZProgramemStudiowAnalitykiGospodarczej(){
         economicAnalytics.assertTitle();
     }
 
 
-    @Kiedy("kline przycisk {string}")
+    @Kiedy("kliknę przycisk {string}")
     public void klinePrzycisk(String arg0) throws InterruptedException {
         studyProgram.clickAccessibilityButton();
     }
 
-    @Wtedy("ukaża mi się ustawienia dostępnosci")
+    @Wtedy("wyskoczy pop-up z ustawieniami dostępności")
     public void ukażaMiSięUstawieniaDostępnosci() throws InterruptedException {
         studyProgram.assertVisibilityOfAccessibilitySettings();
     }
 
-    @Wtedy("powinienem zostać poinformowany o poprzednich przejsciach aby dojsc do aktualnej strony")
+    @Wtedy("powinienem zostać poinformowany o poprzednich koniecznych aby dojsc do aktualnej strony")
     public void powinienemZostaćPoinformowanyOPoprzednichPrzejsciachAbyDojscDoAktualnejStrony() {
         studyProgram.assertPath();
     }
 
-    @Kiedy("wybiorę studia II stopnia w zakladce z poziomami studiów")
+    @Kiedy("wybiorę studia II stopnia w zakładce z poziomami studiów")
     public void wybioręStudiaIIStopniaWZakladceZPoziomamiStudiów() {
         masterStudies = studyProgram.goToMasterStudies();
     }
 
-    @Wtedy("zostanę przeniesiony na odpowiednią stronę")
+    @Wtedy("zostanę przeniesiony na odpowiednią stronę z kierunkami studiów II stopnia")
     public void zostanęPrzeniesionyNaOdpowiedniąStronę() {
         masterStudies.assertUrl();
     }
 
-    @Wtedy("na stronie jest widoczny domyslny nagłówek i stopka")
+    @Wtedy("na stronie obecny jest domyślny nagłówek i stopka")
     public void naStronieJestWidocznyDomyslnyNagłówekIStopka() {
         studyProgram.assertVisibilityOfHeaderFooter();
     }
 
-    @Wtedy("Powinienem zobaczyć tekst {string}")
+    @Wtedy("powinienem zobaczyć tekst {string}")
     public void powinienemZobaczyćTekst(String arg0) {
         studyProgram.assertTitle();
     }

@@ -21,12 +21,12 @@ public class EconomicAnalyticsSteps {
 
     }
 
-    @Kiedy("zaznacze przycisk studia stacjonarne")
+    @Kiedy("zaznaczę przycisk studia stacjonarne")
     public void zaznaczePrzyciskStudiaStacjonarne() {
         economicAnalytics.clickBachelorRadio();
     }
 
-    @Wtedy("Nie powinien sie ukazac przycisk z ikonką pdf")
+    @Wtedy("nie powinienen się ukazac przycisk z ikonką pdf")
     public void niePowinienSieUkazacPrzyciskZIkonkaPDF() throws InterruptedException {
         economicAnalytics.assertVisibilityOfPdfIcon();
     }
@@ -42,7 +42,7 @@ public class EconomicAnalyticsSteps {
 
     }
 
-    @Wtedy("wartosc sie zmieni na {string}")
+    @Wtedy("wartość sie zmieni na {string}")
     public void wartoscSieZmieniNa(String arg0) {
         economicAnalytics.assertSelectValue();
     }
